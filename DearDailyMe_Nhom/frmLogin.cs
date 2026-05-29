@@ -14,7 +14,7 @@ namespace DearDailyMe_Nhom
 
         private void btnDangNhap_Click(object sender, EventArgs e)
         {
-            // SỬA TẠI ĐÂY: Lấy đúng txtTenDangNhap cho biến u
+            
             string u = txtTenDangNhap.Text.Trim().ToLower();
             string p = txtMatKhau.Text;
 
@@ -24,7 +24,7 @@ namespace DearDailyMe_Nhom
                 return;
             }
 
-            // Tìm kiếm người dùng trong danh sách static
+            
             var userFound = DataStorage.TatCaNguoiDung.FirstOrDefault(x =>
                 x.TenDangNhap.Trim().ToLower() == u);
 
