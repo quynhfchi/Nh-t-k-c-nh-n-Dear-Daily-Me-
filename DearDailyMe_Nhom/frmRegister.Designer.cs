@@ -45,12 +45,16 @@
             this.radNu = new System.Windows.Forms.RadioButton();
             this.radKhac = new System.Windows.Forms.RadioButton();
             this.lnklDangNhapTaiDay = new System.Windows.Forms.LinkLabel();
+            this.pnlDangKyTaiKhoan = new System.Windows.Forms.Panel();
+            this.pnlDangKy2 = new System.Windows.Forms.Panel();
+            this.pnlDangKyTaiKhoan.SuspendLayout();
+            this.pnlDangKy2.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(96, 207);
+            this.label1.Location = new System.Drawing.Point(94, 226);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(245, 37);
             this.label1.TabIndex = 0;
@@ -59,7 +63,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(96, 293);
+            this.label2.Location = new System.Drawing.Point(94, 312);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(154, 37);
             this.label2.TabIndex = 1;
@@ -68,7 +72,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(96, 132);
+            this.label3.Location = new System.Drawing.Point(94, 151);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(164, 37);
             this.label3.TabIndex = 2;
@@ -77,17 +81,17 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.label4.Location = new System.Drawing.Point(392, 25);
+            this.label4.Location = new System.Drawing.Point(385, 22);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(437, 55);
+            this.label4.Size = new System.Drawing.Size(466, 65);
             this.label4.TabIndex = 3;
             this.label4.Text = "Đăng Ký Tài Khoản";
             // 
             // txtHovaTen
             // 
-            this.txtHovaTen.Location = new System.Drawing.Point(402, 132);
+            this.txtHovaTen.Location = new System.Drawing.Point(400, 151);
             this.txtHovaTen.Multiline = true;
             this.txtHovaTen.Name = "txtHovaTen";
             this.txtHovaTen.Size = new System.Drawing.Size(447, 53);
@@ -95,7 +99,7 @@
             // 
             // txtTenDangNhap
             // 
-            this.txtTenDangNhap.Location = new System.Drawing.Point(402, 207);
+            this.txtTenDangNhap.Location = new System.Drawing.Point(400, 226);
             this.txtTenDangNhap.Multiline = true;
             this.txtTenDangNhap.Name = "txtTenDangNhap";
             this.txtTenDangNhap.Size = new System.Drawing.Size(447, 58);
@@ -103,7 +107,7 @@
             // 
             // txtEmail
             // 
-            this.txtEmail.Location = new System.Drawing.Point(402, 580);
+            this.txtEmail.Location = new System.Drawing.Point(400, 599);
             this.txtEmail.Multiline = true;
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(447, 60);
@@ -111,17 +115,18 @@
             // 
             // btnDangKy
             // 
-            this.btnDangKy.Location = new System.Drawing.Point(402, 706);
+            this.btnDangKy.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.btnDangKy.Location = new System.Drawing.Point(400, 704);
             this.btnDangKy.Name = "btnDangKy";
             this.btnDangKy.Size = new System.Drawing.Size(234, 73);
             this.btnDangKy.TabIndex = 7;
             this.btnDangKy.Text = "Đăng Ký";
-            this.btnDangKy.UseVisualStyleBackColor = true;
+            this.btnDangKy.UseVisualStyleBackColor = false;
             this.btnDangKy.Click += new System.EventHandler(this.btnDangKy_Click);
             // 
             // txtMatKhau
             // 
-            this.txtMatKhau.Location = new System.Drawing.Point(402, 293);
+            this.txtMatKhau.Location = new System.Drawing.Point(400, 312);
             this.txtMatKhau.Multiline = true;
             this.txtMatKhau.Name = "txtMatKhau";
             this.txtMatKhau.Size = new System.Drawing.Size(447, 63);
@@ -130,7 +135,7 @@
             // lblNgaySinh
             // 
             this.lblNgaySinh.AutoSize = true;
-            this.lblNgaySinh.Location = new System.Drawing.Point(96, 394);
+            this.lblNgaySinh.Location = new System.Drawing.Point(94, 413);
             this.lblNgaySinh.Name = "lblNgaySinh";
             this.lblNgaySinh.Size = new System.Drawing.Size(165, 37);
             this.lblNgaySinh.TabIndex = 9;
@@ -139,7 +144,7 @@
             // lblGioiTinh
             // 
             this.lblGioiTinh.AutoSize = true;
-            this.lblGioiTinh.Location = new System.Drawing.Point(96, 484);
+            this.lblGioiTinh.Location = new System.Drawing.Point(94, 503);
             this.lblGioiTinh.Name = "lblGioiTinh";
             this.lblGioiTinh.Size = new System.Drawing.Size(146, 37);
             this.lblGioiTinh.TabIndex = 10;
@@ -148,7 +153,7 @@
             // lblEmail
             // 
             this.lblEmail.AutoSize = true;
-            this.lblEmail.Location = new System.Drawing.Point(96, 580);
+            this.lblEmail.Location = new System.Drawing.Point(94, 599);
             this.lblEmail.Name = "lblEmail";
             this.lblEmail.Size = new System.Drawing.Size(97, 37);
             this.lblEmail.TabIndex = 11;
@@ -156,7 +161,7 @@
             // 
             // dtpNgaySinh
             // 
-            this.dtpNgaySinh.Location = new System.Drawing.Point(402, 394);
+            this.dtpNgaySinh.Location = new System.Drawing.Point(400, 413);
             this.dtpNgaySinh.Name = "dtpNgaySinh";
             this.dtpNgaySinh.Size = new System.Drawing.Size(447, 44);
             this.dtpNgaySinh.TabIndex = 12;
@@ -164,7 +169,7 @@
             // radNam
             // 
             this.radNam.AutoSize = true;
-            this.radNam.Location = new System.Drawing.Point(404, 484);
+            this.radNam.Location = new System.Drawing.Point(402, 503);
             this.radNam.Name = "radNam";
             this.radNam.Size = new System.Drawing.Size(130, 41);
             this.radNam.TabIndex = 13;
@@ -175,7 +180,7 @@
             // radNu
             // 
             this.radNu.AutoSize = true;
-            this.radNu.Location = new System.Drawing.Point(634, 484);
+            this.radNu.Location = new System.Drawing.Point(632, 503);
             this.radNu.Name = "radNu";
             this.radNu.Size = new System.Drawing.Size(103, 41);
             this.radNu.TabIndex = 14;
@@ -186,7 +191,7 @@
             // radKhac
             // 
             this.radKhac.AutoSize = true;
-            this.radKhac.Location = new System.Drawing.Point(859, 484);
+            this.radKhac.Location = new System.Drawing.Point(857, 503);
             this.radKhac.Name = "radKhac";
             this.radKhac.Size = new System.Drawing.Size(134, 41);
             this.radKhac.TabIndex = 15;
@@ -197,7 +202,7 @@
             // lnklDangNhapTaiDay
             // 
             this.lnklDangNhapTaiDay.AutoSize = true;
-            this.lnklDangNhapTaiDay.Location = new System.Drawing.Point(395, 814);
+            this.lnklDangNhapTaiDay.Location = new System.Drawing.Point(393, 823);
             this.lnklDangNhapTaiDay.Name = "lnklDangNhapTaiDay";
             this.lnklDangNhapTaiDay.Size = new System.Drawing.Size(300, 37);
             this.lnklDangNhapTaiDay.TabIndex = 16;
@@ -205,12 +210,32 @@
             this.lnklDangNhapTaiDay.Text = "Đăng Nhập Tại Đây";
             this.lnklDangNhapTaiDay.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lnklDangNhapTaiDay_LinkClicked);
             // 
+            // pnlDangKyTaiKhoan
+            // 
+            this.pnlDangKyTaiKhoan.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.pnlDangKyTaiKhoan.Controls.Add(this.label4);
+            this.pnlDangKyTaiKhoan.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnlDangKyTaiKhoan.Location = new System.Drawing.Point(0, 0);
+            this.pnlDangKyTaiKhoan.Name = "pnlDangKyTaiKhoan";
+            this.pnlDangKyTaiKhoan.Size = new System.Drawing.Size(1110, 127);
+            this.pnlDangKyTaiKhoan.TabIndex = 17;
+            // 
+            // pnlDangKy2
+            // 
+            this.pnlDangKy2.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.pnlDangKy2.Controls.Add(this.lnklDangNhapTaiDay);
+            this.pnlDangKy2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnlDangKy2.Location = new System.Drawing.Point(0, 0);
+            this.pnlDangKy2.Name = "pnlDangKy2";
+            this.pnlDangKy2.Size = new System.Drawing.Size(1110, 971);
+            this.pnlDangKy2.TabIndex = 18;
+            // 
             // frmRegister
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(19F, 37F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1198, 882);
-            this.Controls.Add(this.lnklDangNhapTaiDay);
+            this.ClientSize = new System.Drawing.Size(1110, 971);
+            this.Controls.Add(this.pnlDangKyTaiKhoan);
             this.Controls.Add(this.radKhac);
             this.Controls.Add(this.radNu);
             this.Controls.Add(this.radNam);
@@ -223,13 +248,16 @@
             this.Controls.Add(this.txtEmail);
             this.Controls.Add(this.txtTenDangNhap);
             this.Controls.Add(this.txtHovaTen);
-            this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.Controls.Add(this.pnlDangKy2);
             this.Name = "frmRegister";
-            this.Text = "frmRegister";
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Text = "Đăng Ký";
+            this.pnlDangKyTaiKhoan.ResumeLayout(false);
+            this.pnlDangKyTaiKhoan.PerformLayout();
+            this.pnlDangKy2.ResumeLayout(false);
+            this.pnlDangKy2.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -254,5 +282,7 @@
         private System.Windows.Forms.RadioButton radNu;
         private System.Windows.Forms.RadioButton radKhac;
         private System.Windows.Forms.LinkLabel lnklDangNhapTaiDay;
+        private System.Windows.Forms.Panel pnlDangKyTaiKhoan;
+        private System.Windows.Forms.Panel pnlDangKy2;
     }
 }

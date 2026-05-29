@@ -121,4 +121,10 @@
   <data name="z7870572443644_25e466cf23055851ad180be467d19be2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\z7870572443644_25e466cf23055851ad180be467d19be2.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Ảnh chụp màn hình 2026-05-29 221457" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Ảnh chụp màn hình 2026-05-29 221457.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Ảnh chụp màn hình 2026-05-29 2214571" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Ảnh chụp màn hình 2026-05-29 2214571.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
 </root>
