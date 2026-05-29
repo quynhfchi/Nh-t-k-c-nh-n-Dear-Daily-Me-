@@ -1,0 +1,147 @@
+﻿namespace DearDailyMe_Nhom
+{
+    partial class frmMain
+    {
+        /// <summary>
+        /// Required designer variable.
+        /// </summary>
+        private System.ComponentModel.IContainer components = null;
+
+        /// <summary>
+        /// Clean up any resources being used.
+        /// </summary>
+        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+
+        #region Windows Form Designer generated code
+
+        /// <summary>
+        /// Required method for Designer support - do not modify
+        /// the contents of this method with the code editor.
+        /// </summary>
+        private void InitializeComponent()
+        {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMain));
+            this.pnlSlideBar = new System.Windows.Forms.Panel();
+            this.pnlContent = new System.Windows.Forms.Panel();
+            this.btnVietNhatKy = new System.Windows.Forms.Button();
+            this.btnNhatKyCuaToi = new System.Windows.Forms.Button();
+            this.btnTimKiem = new System.Windows.Forms.Button();
+            this.btnThongKeCamXuc = new System.Windows.Forms.Button();
+            this.btnLich = new System.Windows.Forms.Button();
+            this.pnlSlideBar.SuspendLayout();
+            this.SuspendLayout();
+            // 
+            // pnlSlideBar
+            // 
+            this.pnlSlideBar.BackColor = System.Drawing.Color.LightBlue;
+            this.pnlSlideBar.Controls.Add(this.btnLich);
+            this.pnlSlideBar.Controls.Add(this.btnThongKeCamXuc);
+            this.pnlSlideBar.Controls.Add(this.btnTimKiem);
+            this.pnlSlideBar.Controls.Add(this.btnNhatKyCuaToi);
+            this.pnlSlideBar.Controls.Add(this.btnVietNhatKy);
+            this.pnlSlideBar.Dock = System.Windows.Forms.DockStyle.Left;
+            this.pnlSlideBar.Location = new System.Drawing.Point(0, 0);
+            this.pnlSlideBar.Name = "pnlSlideBar";
+            this.pnlSlideBar.Size = new System.Drawing.Size(425, 957);
+            this.pnlSlideBar.TabIndex = 0;
+            // 
+            // pnlContent
+            // 
+            this.pnlContent.BackColor = System.Drawing.Color.MintCream;
+            this.pnlContent.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnlContent.Location = new System.Drawing.Point(425, 0);
+            this.pnlContent.Name = "pnlContent";
+            this.pnlContent.Size = new System.Drawing.Size(1202, 957);
+            this.pnlContent.TabIndex = 1;
+            // 
+            // btnVietNhatKy
+            // 
+            this.btnVietNhatKy.Font = new System.Drawing.Font("Segoe UI", 10F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnVietNhatKy.ForeColor = System.Drawing.SystemColors.ActiveCaption;
+            this.btnVietNhatKy.Location = new System.Drawing.Point(0, 30);
+            this.btnVietNhatKy.Name = "btnVietNhatKy";
+            this.btnVietNhatKy.Size = new System.Drawing.Size(425, 70);
+            this.btnVietNhatKy.TabIndex = 0;
+            this.btnVietNhatKy.Text = "Viết Nhật Ký";
+            this.btnVietNhatKy.UseVisualStyleBackColor = true;
+            // 
+            // btnNhatKyCuaToi
+            // 
+            this.btnNhatKyCuaToi.Font = new System.Drawing.Font("Segoe UI", 10F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnNhatKyCuaToi.ForeColor = System.Drawing.SystemColors.ActiveCaption;
+            this.btnNhatKyCuaToi.Location = new System.Drawing.Point(0, 171);
+            this.btnNhatKyCuaToi.Name = "btnNhatKyCuaToi";
+            this.btnNhatKyCuaToi.Size = new System.Drawing.Size(425, 70);
+            this.btnNhatKyCuaToi.TabIndex = 1;
+            this.btnNhatKyCuaToi.Text = "Nhật Ký Của Tôi";
+            this.btnNhatKyCuaToi.UseVisualStyleBackColor = true;
+
+            // 
+            // btnTimKiem
+            // 
+            this.btnTimKiem.Font = new System.Drawing.Font("Segoe UI", 10F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnTimKiem.ForeColor = System.Drawing.SystemColors.ActiveCaption;
+            this.btnTimKiem.Location = new System.Drawing.Point(0, 312);
+            this.btnTimKiem.Name = "btnTimKiem";
+            this.btnTimKiem.Size = new System.Drawing.Size(428, 70);
+            this.btnTimKiem.TabIndex = 2;
+            this.btnTimKiem.Text = "Tìm Kiếm";
+            this.btnTimKiem.UseVisualStyleBackColor = true;
+            // 
+            // btnThongKeCamXuc
+            // 
+            this.btnThongKeCamXuc.Font = new System.Drawing.Font("Segoe UI", 10F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnThongKeCamXuc.ForeColor = System.Drawing.SystemColors.ActiveCaption;
+            this.btnThongKeCamXuc.Location = new System.Drawing.Point(0, 453);
+            this.btnThongKeCamXuc.Name = "btnThongKeCamXuc";
+            this.btnThongKeCamXuc.Size = new System.Drawing.Size(425, 70);
+            this.btnThongKeCamXuc.TabIndex = 3;
+            this.btnThongKeCamXuc.Text = "Thống Kê Cảm Xúc";
+            this.btnThongKeCamXuc.UseVisualStyleBackColor = true;
+            // 
+            // btnLich
+            // 
+            this.btnLich.Font = new System.Drawing.Font("Segoe UI", 10F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLich.ForeColor = System.Drawing.SystemColors.ActiveCaption;
+            this.btnLich.Location = new System.Drawing.Point(0, 594);
+            this.btnLich.Name = "btnLich";
+            this.btnLich.Size = new System.Drawing.Size(428, 70);
+            this.btnLich.TabIndex = 4;
+            this.btnLich.Text = "Lịch";
+            this.btnLich.UseVisualStyleBackColor = true;
+            // 
+            // frmMain
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(19F, 37F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(1627, 957);
+            this.Controls.Add(this.pnlContent);
+            this.Controls.Add(this.pnlSlideBar);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Name = "frmMain";
+            this.Text = "Dear DailyMe-Nhật ký của tôi";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.pnlSlideBar.ResumeLayout(false);
+            this.ResumeLayout(false);
+
+        }
+
+        #endregion
+
+        private System.Windows.Forms.Panel pnlSlideBar;
+        private System.Windows.Forms.Panel pnlContent;
+        private System.Windows.Forms.Button btnLich;
+        private System.Windows.Forms.Button btnThongKeCamXuc;
+        private System.Windows.Forms.Button btnTimKiem;
+        private System.Windows.Forms.Button btnNhatKyCuaToi;
+        private System.Windows.Forms.Button btnVietNhatKy;
+    }
+}
