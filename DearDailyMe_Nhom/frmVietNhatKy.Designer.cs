@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.dtpNgayViet = new System.Windows.Forms.DateTimePicker();
+            this.components = new System.ComponentModel.Container();
             this.picKhoanhKhac = new System.Windows.Forms.PictureBox();
             this.txtNoiDung = new System.Windows.Forms.TextBox();
             this.btnLuu = new System.Windows.Forms.Button();
@@ -43,18 +43,11 @@
             this.lblNoiDung = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
+            this.lblNgayHienTai = new System.Windows.Forms.Label();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.picKhoanhKhac)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // dtpNgayViet
-            // 
-            this.dtpNgayViet.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtpNgayViet.Location = new System.Drawing.Point(337, 106);
-            this.dtpNgayViet.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.dtpNgayViet.Name = "dtpNgayViet";
-            this.dtpNgayViet.Size = new System.Drawing.Size(344, 29);
-            this.dtpNgayViet.TabIndex = 0;
             // 
             // picKhoanhKhac
             // 
@@ -203,11 +196,12 @@
             this.lblNoiDung.BackColor = System.Drawing.SystemColors.Control;
             this.lblNoiDung.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblNoiDung.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.lblNoiDung.Location = new System.Drawing.Point(32, 161);
+            this.lblNoiDung.Location = new System.Drawing.Point(32, 160);
             this.lblNoiDung.Name = "lblNoiDung";
-            this.lblNoiDung.Size = new System.Drawing.Size(275, 21);
+            this.lblNoiDung.Size = new System.Drawing.Size(200, 21);
             this.lblNoiDung.TabIndex = 13;
-            this.lblNoiDung.Text = "Kể cho mình nghe câu chuyện của bạn";
+            this.lblNoiDung.Text = "Thả tâm tư của bạn vào đây";
+            this.lblNoiDung.Click += new System.EventHandler(this.lblNoiDung_Click);
             // 
             // panel1
             // 
@@ -232,11 +226,26 @@
             this.label1.TabIndex = 15;
             this.label1.Text = "Viết Nhật Ký";
             // 
+            // lblNgayHienTai
+            // 
+            this.lblNgayHienTai.AutoSize = true;
+            this.lblNgayHienTai.Location = new System.Drawing.Point(370, 112);
+            this.lblNgayHienTai.Name = "lblNgayHienTai";
+            this.lblNgayHienTai.Size = new System.Drawing.Size(0, 28);
+            this.lblNgayHienTai.TabIndex = 15;
+            // 
+            // timer1
+            // 
+            this.timer1.Enabled = true;
+            this.timer1.Interval = 1000;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
             // frmVietNhatKy
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 28F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1066, 579);
+            this.Controls.Add(this.lblNgayHienTai);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.lblNoiDung);
             this.Controls.Add(this.lblCamXuc);
@@ -250,7 +259,6 @@
             this.Controls.Add(this.btnLuu);
             this.Controls.Add(this.txtNoiDung);
             this.Controls.Add(this.picKhoanhKhac);
-            this.Controls.Add(this.dtpNgayViet);
             this.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "frmVietNhatKy";
@@ -265,8 +273,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.DateTimePicker dtpNgayViet;
         private System.Windows.Forms.PictureBox picKhoanhKhac;
         private System.Windows.Forms.TextBox txtNoiDung;
         private System.Windows.Forms.Button btnLuu;
@@ -281,5 +287,7 @@
         private System.Windows.Forms.Label lblNoiDung;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblNgayHienTai;
+        private System.Windows.Forms.Timer timer1;
     }
 }

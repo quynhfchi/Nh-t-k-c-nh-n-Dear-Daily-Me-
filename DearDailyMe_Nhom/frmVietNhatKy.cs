@@ -43,12 +43,12 @@ namespace DearDailyMe_Nhom
 
             if (string.IsNullOrEmpty(camXucDuocChon))
             {
-                MessageBox.Show("Bạn chưa chọn cảm xúc cho hôm nay! Vui lòng tích chọn 1 mục nhé.", "Lỗi nhập liệu", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return; 
+                MessageBox.Show("Bạn chưa chọn cảm xúc cho hôm nay!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
             }
 
             NhatKy moi = new NhatKy();
-            moi.NgayGhi = dtpNgayViet.Value;
+            moi.NgayGhi = DateTime.Now;
             moi.NoiDung = txtNoiDung.Text;
             moi.CamXuc = camXucDuocChon;
 
@@ -77,12 +77,12 @@ namespace DearDailyMe_Nhom
             radThatVong.Checked = false;
         }
 
-        private void lblNgayViet_Click(object sender, EventArgs e)
+        private void frmVietNhatKy_Load(object sender, EventArgs e)
         {
-
+            lblNgayViet.Text = DateTime.Now.ToString("HH:mm:ss - dddd, MMMM dd, yyyy");
         }
 
-        private void frmVietNhatKy_Load(object sender, EventArgs e)
+        private void lblNgayViet_Click(object sender, EventArgs e)
         {
 
         }
@@ -95,6 +95,16 @@ namespace DearDailyMe_Nhom
         private void lblCamXuc_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void lblNoiDung_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            lblNgayViet.Text = DateTime.Now.ToString("HH:mm:ss - dddd, MMMM dd, yyyy");
         }
     }
 }
