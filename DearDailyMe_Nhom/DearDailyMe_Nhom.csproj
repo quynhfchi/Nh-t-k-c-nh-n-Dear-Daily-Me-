@@ -60,11 +60,29 @@
     <Compile Include="frmMain.Designer.cs">
       <DependentUpon>frmMain.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmNhatKyCuaToi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmNhatKyCuaToi.Designer.cs">
+      <DependentUpon>frmNhatKyCuaToi.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmRegister.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmRegister.Designer.cs">
       <DependentUpon>frmRegister.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmTimKiem.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmTimKiem.Designer.cs">
+      <DependentUpon>frmTimKiem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmVietNhatKy.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmVietNhatKy.Designer.cs">
+      <DependentUpon>frmVietNhatKy.cs</DependentUpon>
     </Compile>
     <Compile Include="NhatKy.cs" />
     <Compile Include="Program.cs" />
@@ -75,8 +93,17 @@
     <EmbeddedResource Include="frmMain.resx">
       <DependentUpon>frmMain.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmNhatKyCuaToi.resx">
+      <DependentUpon>frmNhatKyCuaToi.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmRegister.resx">
       <DependentUpon>frmRegister.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmTimKiem.resx">
+      <DependentUpon>frmTimKiem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmVietNhatKy.resx">
+      <DependentUpon>frmVietNhatKy.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

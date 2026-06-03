@@ -18,5 +18,6 @@ namespace DearDailyMe_Nhom
         
         public static List<NguoiDung> TatCaNguoiDung = new List<NguoiDung>();
         public static NguoiDung NguoiDungHienTai { get; set; }
+        public static List<NhatKy> dsnhatky = new List<NhatKy>();
     }
 }
