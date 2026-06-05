@@ -59,5 +59,15 @@ namespace DearDailyMe_Nhom
         {
 
         }
+
+        private void panel2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void lblTenDangNhap_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -223,6 +223,26 @@ namespace DearDailyMe_Nhom.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap gấu {
+            get {
+                object obj = ResourceManager.GetObject("gấu", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap gấu1 {
+            get {
+                object obj = ResourceManager.GetObject("gấu1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap mới {
             get {
                 object obj = ResourceManager.GetObject("mới", resourceCulture);
@@ -236,6 +256,26 @@ namespace DearDailyMe_Nhom.Properties {
         internal static System.Drawing.Bitmap mới1 {
             get {
                 object obj = ResourceManager.GetObject("mới1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap nhật_ký_của_tôi {
+            get {
+                object obj = ResourceManager.GetObject("nhật ký của tôi", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap nhật_ký_của_tôi1 {
+            get {
+                object obj = ResourceManager.GetObject("nhật ký của tôi1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

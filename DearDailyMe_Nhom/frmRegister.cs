@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Linq;
 using System.Windows.Forms;
+using System.Text.RegularExpressions;
 using System.Globalization;
 
 namespace DearDailyMe_Nhom
@@ -16,19 +17,31 @@ namespace DearDailyMe_Nhom
                 string.IsNullOrWhiteSpace(txtMatKhau.Text) ||
                 string.IsNullOrWhiteSpace(txtEmail.Text))
             {
-                MessageBox.Show("Các thông tin này là bắt buộc, bạn không được để trống nhé!", "Thông báo");
+                MessageBox.Show("Các thông tin này là bắt buộc!");
+                return;
+            }
+
+            if (txtMatKhau.Text.Length <= 6)
+            {
+                MessageBox.Show("Mật khẩu phải trên 6 ký tự!");
+                return;
+            }
+
+            if (!txtEmail.Text.EndsWith(".com", StringComparison.OrdinalIgnoreCase) || !txtEmail.Text.Contains("@"))
+            {
+                MessageBox.Show("Email phải có định dạng hợp lệ và kết thúc bằng .com!");
                 return;
             }
 
             if (!radNam.Checked && !radNu.Checked && !radKhac.Checked)
             {
-                MessageBox.Show("Vui lòng chọn giới tính của bạn!", "Thông báo");
+                MessageBox.Show("Vui lòng chọn giới tính!");
                 return;
             }
 
             if (dtpNgaySinh.Value.Date >= DateTime.Now.Date)
             {
-                MessageBox.Show("Ngày sinh không hợp lệ. Vui lòng chọn lại ngày sinh chính xác!", "Lỗi");
+                MessageBox.Show("Ngày sinh không hợp lệ!");
                 return;
             }
 
@@ -40,11 +53,11 @@ namespace DearDailyMe_Nhom
 
             if (tuoi < 13)
             {
-                MessageBox.Show("Bạn phải từ 13 tuổi trở lên mới được sử dụng ứng dụng này nhé!", "Thông báo độ tuổi");
+                MessageBox.Show("Bạn phải từ 13 tuổi trở lên!");
                 return;
             }
 
-            string hoTenChuan = System.Globalization.CultureInfo.CurrentCulture.TextInfo.ToTitleCase(txtHovaTen.Text.ToLower());
+            string hoTenChuan = CultureInfo.CurrentCulture.TextInfo.ToTitleCase(txtHovaTen.Text.ToLower());
 
             var nguoiMoi = new NguoiDung
             {
@@ -59,7 +72,7 @@ namespace DearDailyMe_Nhom
             DataStorage.TatCaNguoiDung.Add(nguoiMoi);
             DataStorage.NguoiDungHienTai = nguoiMoi;
 
-            MessageBox.Show($"Chúc mừng {nguoiMoi.HoTen} đã đăng ký thành công! Hãy nhấn 'Đăng nhập tại đây' để tiếp tục.", "Thành công");
+            MessageBox.Show($"Chúc mừng {nguoiMoi.HoTen} đã đăng ký thành công!");
         }
 
         private void lnklDangNhapTaiDay_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -67,9 +80,9 @@ namespace DearDailyMe_Nhom
             this.Close();
         }
 
-        private void lnklDangNhapTaiDay_LinkClicked1(object sender, LinkLabelLinkClickedEventArgs e)
+        private void panel1_Paint(object sender, PaintEventArgs e)
         {
-            this.Close();
+
         }
     }
 }
