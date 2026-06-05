@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
             this.txtTuKhoa = new System.Windows.Forms.TextBox();
             this.cboCamXuc = new System.Windows.Forms.ComboBox();
             this.dtpNgayTim = new System.Windows.Forms.DateTimePicker();
@@ -53,15 +53,16 @@
             // 
             // txtTuKhoa
             // 
-            this.txtTuKhoa.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTuKhoa.Location = new System.Drawing.Point(315, 172);
+            this.txtTuKhoa.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.txtTuKhoa.Location = new System.Drawing.Point(665, 318);
+            this.txtTuKhoa.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.txtTuKhoa.Name = "txtTuKhoa";
-            this.txtTuKhoa.Size = new System.Drawing.Size(202, 34);
+            this.txtTuKhoa.Size = new System.Drawing.Size(422, 62);
             this.txtTuKhoa.TabIndex = 0;
             // 
             // cboCamXuc
             // 
-            this.cboCamXuc.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cboCamXuc.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.cboCamXuc.FormattingEnabled = true;
             this.cboCamXuc.Items.AddRange(new object[] {
             "😍 Hạnh phúc",
@@ -69,28 +70,31 @@
             "😐 Bình Thường",
             "😢 Buồn",
             "😫 Thất Vọng"});
-            this.cboCamXuc.Location = new System.Drawing.Point(315, 240);
+            this.cboCamXuc.Location = new System.Drawing.Point(665, 444);
+            this.cboCamXuc.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.cboCamXuc.Name = "cboCamXuc";
-            this.cboCamXuc.Size = new System.Drawing.Size(146, 36);
+            this.cboCamXuc.Size = new System.Drawing.Size(304, 63);
             this.cboCamXuc.TabIndex = 1;
             // 
             // dtpNgayTim
             // 
             this.dtpNgayTim.CalendarFont = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtpNgayTim.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtpNgayTim.Location = new System.Drawing.Point(315, 353);
+            this.dtpNgayTim.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.dtpNgayTim.Location = new System.Drawing.Point(665, 653);
+            this.dtpNgayTim.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.dtpNgayTim.Name = "dtpNgayTim";
-            this.dtpNgayTim.Size = new System.Drawing.Size(322, 34);
+            this.dtpNgayTim.Size = new System.Drawing.Size(675, 62);
             this.dtpNgayTim.TabIndex = 2;
             // 
             // chkTimTheoNgay
             // 
             this.chkTimTheoNgay.AutoSize = true;
             this.chkTimTheoNgay.BackColor = System.Drawing.SystemColors.Window;
-            this.chkTimTheoNgay.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chkTimTheoNgay.Location = new System.Drawing.Point(75, 354);
+            this.chkTimTheoNgay.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.chkTimTheoNgay.Location = new System.Drawing.Point(158, 655);
+            this.chkTimTheoNgay.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.chkTimTheoNgay.Name = "chkTimTheoNgay";
-            this.chkTimTheoNgay.Size = new System.Drawing.Size(195, 36);
+            this.chkTimTheoNgay.Size = new System.Drawing.Size(374, 59);
             this.chkTimTheoNgay.TabIndex = 3;
             this.chkTimTheoNgay.Text = "Tìm theo ngày";
             this.chkTimTheoNgay.UseVisualStyleBackColor = false;
@@ -99,9 +103,10 @@
             // 
             this.btnTimKiem.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.btnTimKiem.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnTimKiem.Location = new System.Drawing.Point(678, 762);
+            this.btnTimKiem.Location = new System.Drawing.Point(1431, 1410);
+            this.btnTimKiem.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.btnTimKiem.Name = "btnTimKiem";
-            this.btnTimKiem.Size = new System.Drawing.Size(151, 49);
+            this.btnTimKiem.Size = new System.Drawing.Size(319, 91);
             this.btnTimKiem.TabIndex = 4;
             this.btnTimKiem.Text = "Tìm Kiếm";
             this.btnTimKiem.UseVisualStyleBackColor = false;
@@ -112,25 +117,26 @@
             this.dgvKetQua.BackgroundColor = System.Drawing.SystemColors.Control;
             this.dgvKetQua.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvKetQua.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 11F);
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvKetQua.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Segoe UI", 11F);
+            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvKetQua.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
             this.dgvKetQua.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvKetQua.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.colNgay,
             this.colCamXuc,
             this.colNoiDung});
             this.dgvKetQua.GridColor = System.Drawing.Color.Gray;
-            this.dgvKetQua.Location = new System.Drawing.Point(721, 227);
+            this.dgvKetQua.Location = new System.Drawing.Point(1522, 420);
+            this.dgvKetQua.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.dgvKetQua.Name = "dgvKetQua";
             this.dgvKetQua.RowHeadersWidth = 62;
             this.dgvKetQua.RowTemplate.Height = 28;
-            this.dgvKetQua.Size = new System.Drawing.Size(761, 442);
+            this.dgvKetQua.Size = new System.Drawing.Size(1607, 818);
             this.dgvKetQua.TabIndex = 5;
             this.dgvKetQua.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvKetQua_CellContentClick);
             // 
@@ -162,11 +168,12 @@
             // 
             this.lblTieuDe.AutoSize = true;
             this.lblTieuDe.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.lblTieuDe.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTieuDe.Font = new System.Drawing.Font("Palatino Linotype", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTieuDe.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.lblTieuDe.Location = new System.Drawing.Point(593, 28);
+            this.lblTieuDe.Location = new System.Drawing.Point(1252, 52);
+            this.lblTieuDe.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.lblTieuDe.Name = "lblTieuDe";
-            this.lblTieuDe.Size = new System.Drawing.Size(323, 48);
+            this.lblTieuDe.Size = new System.Drawing.Size(670, 97);
             this.lblTieuDe.TabIndex = 6;
             this.lblTieuDe.Text = "Tìm Kiếm Nhật Ký";
             // 
@@ -174,10 +181,11 @@
             // 
             this.lblTuKhoa.AutoSize = true;
             this.lblTuKhoa.BackColor = System.Drawing.SystemColors.Window;
-            this.lblTuKhoa.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTuKhoa.Location = new System.Drawing.Point(76, 174);
+            this.lblTuKhoa.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.lblTuKhoa.Location = new System.Drawing.Point(160, 322);
+            this.lblTuKhoa.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.lblTuKhoa.Name = "lblTuKhoa";
-            this.lblTuKhoa.Size = new System.Drawing.Size(105, 32);
+            this.lblTuKhoa.Size = new System.Drawing.Size(211, 55);
             this.lblTuKhoa.TabIndex = 7;
             this.lblTuKhoa.Text = "Từ khóa:";
             // 
@@ -185,10 +193,11 @@
             // 
             this.lblCamXuc.AutoSize = true;
             this.lblCamXuc.BackColor = System.Drawing.SystemColors.Window;
-            this.lblCamXuc.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCamXuc.Location = new System.Drawing.Point(76, 244);
+            this.lblCamXuc.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.lblCamXuc.Location = new System.Drawing.Point(160, 451);
+            this.lblCamXuc.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.lblCamXuc.Name = "lblCamXuc";
-            this.lblCamXuc.Size = new System.Drawing.Size(110, 32);
+            this.lblCamXuc.Size = new System.Drawing.Size(227, 55);
             this.lblCamXuc.TabIndex = 8;
             this.lblCamXuc.Text = "Cảm xúc:";
             // 
@@ -196,10 +205,11 @@
             // 
             this.lblNgay.AutoSize = true;
             this.lblNgay.BackColor = System.Drawing.SystemColors.Window;
-            this.lblNgay.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNgay.Location = new System.Drawing.Point(71, 304);
+            this.lblNgay.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.lblNgay.Location = new System.Drawing.Point(150, 562);
+            this.lblNgay.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.lblNgay.Name = "lblNgay";
-            this.lblNgay.Size = new System.Drawing.Size(135, 32);
+            this.lblNgay.Size = new System.Drawing.Size(271, 55);
             this.lblNgay.TabIndex = 9;
             this.lblNgay.Text = "Chọn ngày:";
             // 
@@ -207,10 +217,11 @@
             // 
             this.lblNhatKyDuocHienThi.AutoSize = true;
             this.lblNhatKyDuocHienThi.BackColor = System.Drawing.SystemColors.Window;
-            this.lblNhatKyDuocHienThi.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNhatKyDuocHienThi.Location = new System.Drawing.Point(972, 172);
+            this.lblNhatKyDuocHienThi.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.lblNhatKyDuocHienThi.Location = new System.Drawing.Point(2052, 318);
+            this.lblNhatKyDuocHienThi.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.lblNhatKyDuocHienThi.Name = "lblNhatKyDuocHienThi";
-            this.lblNhatKyDuocHienThi.Size = new System.Drawing.Size(246, 32);
+            this.lblNhatKyDuocHienThi.Size = new System.Drawing.Size(472, 55);
             this.lblNhatKyDuocHienThi.TabIndex = 10;
             this.lblNhatKyDuocHienThi.Text = "Nhật ký được hiển thị";
             // 
@@ -218,10 +229,11 @@
             // 
             this.lblThongTin.AutoSize = true;
             this.lblThongTin.BackColor = System.Drawing.SystemColors.Window;
-            this.lblThongTin.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblThongTin.Location = new System.Drawing.Point(67, 426);
+            this.lblThongTin.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.lblThongTin.Location = new System.Drawing.Point(141, 788);
+            this.lblThongTin.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.lblThongTin.Name = "lblThongTin";
-            this.lblThongTin.Size = new System.Drawing.Size(203, 32);
+            this.lblThongTin.Size = new System.Drawing.Size(383, 55);
             this.lblThongTin.TabIndex = 11;
             this.lblThongTin.Text = "Thông tin tóm tắt";
             this.lblThongTin.Click += new System.EventHandler(this.lblThongTin_Click);
@@ -232,8 +244,9 @@
             this.panel1.Controls.Add(this.lblTieuDe);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1673, 102);
+            this.panel1.Size = new System.Drawing.Size(3532, 189);
             this.panel1.TabIndex = 12;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
@@ -243,18 +256,17 @@
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pictureBox1.Location = new System.Drawing.Point(0, 0);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(1, 2, 1, 2);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(1673, 885);
-            this.pictureBox1.TabIndex = 13;
+            this.pictureBox1.Size = new System.Drawing.Size(3532, 1637);
+            this.pictureBox1.TabIndex = 14;
             this.pictureBox1.TabStop = false;
-            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // frmTimKiem
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(19F, 37F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1673, 885);
+            this.ClientSize = new System.Drawing.Size(3532, 1637);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.lblThongTin);
             this.Controls.Add(this.lblNhatKyDuocHienThi);
@@ -268,6 +280,7 @@
             this.Controls.Add(this.cboCamXuc);
             this.Controls.Add(this.txtTuKhoa);
             this.Controls.Add(this.pictureBox1);
+            this.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.Name = "frmTimKiem";
             this.Text = "frmTimKiem";
             ((System.ComponentModel.ISupportInitialize)(this.dgvKetQua)).EndInit();

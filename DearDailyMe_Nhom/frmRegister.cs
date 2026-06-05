@@ -21,9 +21,17 @@ namespace DearDailyMe_Nhom
                 return;
             }
 
-            if (txtMatKhau.Text.Length <= 6)
+            string hoTenRaw = txtHovaTen.Text.Trim();
+            if (!hoTenRaw.All(c => char.IsLetter(c) || char.IsWhiteSpace(c)))
             {
-                MessageBox.Show("Mật khẩu phải trên 6 ký tự!");
+                MessageBox.Show("Họ và tên chỉ được chứa các chữ cái, không được chứa số hoặc ký tự đặc biệt!");
+                return;
+            }
+
+            string matKhauRaw = txtMatKhau.Text;
+            if (matKhauRaw.Length < 6 || matKhauRaw.Length > 10)
+            {
+                MessageBox.Show("Mật khẩu phải có độ dài từ 6 đến 10 ký tự!");
                 return;
             }
 
@@ -57,13 +65,13 @@ namespace DearDailyMe_Nhom
                 return;
             }
 
-            string hoTenChuan = CultureInfo.CurrentCulture.TextInfo.ToTitleCase(txtHovaTen.Text.ToLower());
+            string hoTenChuan = CultureInfo.CurrentCulture.TextInfo.ToTitleCase(hoTenRaw.ToLower());
 
             var nguoiMoi = new NguoiDung
             {
                 HoTen = hoTenChuan,
                 TenDangNhap = txtTenDangNhap.Text.Trim(),
-                MatKhau = txtMatKhau.Text,
+                MatKhau = matKhauRaw,
                 Email = txtEmail.Text.Trim(),
                 NgaySinh = dtpNgaySinh.Value,
                 GioiTinh = radNam.Checked ? "Nam" : (radNu.Checked ? "Nữ" : "Khác")
@@ -80,9 +88,8 @@ namespace DearDailyMe_Nhom
             this.Close();
         }
 
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
+        private void panel1_Paint(object sender, PaintEventArgs e) { }
 
-        }
+        private void frmRegister_Load(object sender, EventArgs e) { }
     }
 }

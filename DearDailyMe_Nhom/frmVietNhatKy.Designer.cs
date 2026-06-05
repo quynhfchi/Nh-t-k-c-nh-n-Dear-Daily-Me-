@@ -208,11 +208,11 @@
             // 
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Palatino Linotype", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.SystemColors.Highlight;
             this.label1.Location = new System.Drawing.Point(462, 10);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(388, 86);
+            this.label1.Size = new System.Drawing.Size(475, 97);
             this.label1.TabIndex = 15;
             this.label1.Text = "Viết Nhật Ký";
             // 
