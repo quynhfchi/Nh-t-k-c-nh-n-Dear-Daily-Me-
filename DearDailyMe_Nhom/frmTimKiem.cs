@@ -70,5 +70,20 @@ namespace DearDailyMe_Nhom
         {
 
         }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblThongTin_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dgvKetQua_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

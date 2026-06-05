@@ -165,5 +165,44 @@
   <ItemGroup>
     <None Include="Resources\ChatGPT Image Jun 4, 2026, 02_41_13 PM.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ChatGPT Image Jun 5, 2026, 05_38_55 PM.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ChatGPT Image Jun 5, 2026, 06_52_59 PM.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ChatGPT Image Jun 5, 2026, 06_51_01 PM.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\mới.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ChatGPT Image Jun 5, 2026, 08_01_47 PM.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ChatGPT Image Jun 5, 2026, 08_04_44 PM.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ChatGPT Image Jun 5, 2026, 08_04_44 PM1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ChatGPT Image Jun 5, 2026, 08_01_47 PM1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\em gấu.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\em gấu trắng.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\mới1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ChatGPT Image Jun 5, 2026, 08_25_07 PM.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

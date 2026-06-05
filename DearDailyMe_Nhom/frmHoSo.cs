@@ -139,5 +139,15 @@ namespace DearDailyMe_Nhom
             MessageBox.Show("Cập nhật thông tin hồ sơ thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             SetEditingMode(false);
         }
+
+        private void panel3_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void frmHoSo_Load_1(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -63,7 +63,7 @@ namespace DearDailyMe_Nhom
 
             radThangNay.Checked = true;
 
-            radHomNay.CheckedChanged += RadioButton_CheckedChanged;
+            radioButton1.CheckedChanged += RadioButton_CheckedChanged;
             radTuanNay.CheckedChanged += RadioButton_CheckedChanged;
             radThangNay.CheckedChanged += RadioButton_CheckedChanged;
 
@@ -84,11 +84,11 @@ namespace DearDailyMe_Nhom
 
             DateTime mocThoiGian = DateTime.Now;
 
-            if (radHomNay.Checked) mocThoiGian = DateTime.Now.Date;
+            if (radioButton1.Checked) mocThoiGian = DateTime.Now.Date;
             else if (radTuanNay.Checked) mocThoiGian = DateTime.Now.AddDays(-7);
             else if (radThangNay.Checked) mocThoiGian = DateTime.Now.AddMonths(-1);
 
-            string chuoiThoiGian = radHomNay.Checked ? "Hôm nay" : (radTuanNay.Checked ? "Tuần này" : "Tháng này");
+            string chuoiThoiGian = radioButton1.Checked ? "Hôm nay" : (radTuanNay.Checked ? "Tuần này" : "Tháng này");
 
            
             if (DataStorage.dsnhatky == null)
@@ -145,6 +145,21 @@ namespace DearDailyMe_Nhom
                                    "Tâm trạng chủ đạo của bạn được ghi nhận là:  【 " + camXucChuDaoRaw.Trim() + " 】\n\n" +
                                    "💖 Gửi tới bạn thông điệp ngẫu nhiên hôm nay là: 💖\n" +
                                    "\"" + cauAnUi + "\"";
+        }
+
+        private void panel2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void radThangNay_CheckedChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
