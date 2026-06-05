@@ -83,6 +83,36 @@ namespace DearDailyMe_Nhom.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap ChatGPT_Image_Jun_4__2026__02_39_49_PM {
+            get {
+                object obj = ResourceManager.GetObject("ChatGPT Image Jun 4, 2026, 02_39_49 PM", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ChatGPT_Image_Jun_4__2026__02_41_13_PM {
+            get {
+                object obj = ResourceManager.GetObject("ChatGPT Image Jun 4, 2026, 02_41_13 PM", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ChatGPT_Image_Jun_4__2026__02_51_34_PM {
+            get {
+                object obj = ResourceManager.GetObject("ChatGPT Image Jun 4, 2026, 02_51_34 PM", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap z7870572443644_25e466cf23055851ad180be467d19be2 {
             get {
                 object obj = ResourceManager.GetObject("z7870572443644_25e466cf23055851ad180be467d19be2", resourceCulture);

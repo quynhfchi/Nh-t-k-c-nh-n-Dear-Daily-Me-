@@ -14,7 +14,6 @@ namespace DearDailyMe_Nhom
 
         private void btnDangNhap_Click(object sender, EventArgs e)
         {
-            
             string u = txtTenDangNhap.Text.Trim().ToLower();
             string p = txtMatKhau.Text;
 
@@ -24,7 +23,6 @@ namespace DearDailyMe_Nhom
                 return;
             }
 
-            
             var userFound = DataStorage.TatCaNguoiDung.FirstOrDefault(x =>
                 x.TenDangNhap.Trim().ToLower() == u);
 
@@ -40,7 +38,6 @@ namespace DearDailyMe_Nhom
                 return;
             }
 
-            // Lưu thông tin người dùng hiện tại
             DataStorage.NguoiDungHienTai = userFound;
             MessageBox.Show($"Chào mừng {userFound.HoTen} đã quay trở lại!", "Dear Daily Me");
 

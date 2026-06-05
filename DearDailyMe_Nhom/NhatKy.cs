@@ -8,7 +8,7 @@ namespace DearDailyMe_Nhom
         public string MaNK { get; set; }
         public DateTime NgayGhi { get; set; }
         public string NoiDung { get; set; }
-        public string CamXuc { get; set; } // Ví dụ: "Vui", "Hào hứng", "Buồn"
+        public string CamXuc { get; set; } 
         public string DuongDanAnh { get; set; }
 
         

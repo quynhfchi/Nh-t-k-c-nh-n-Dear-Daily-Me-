@@ -36,6 +36,7 @@
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Design" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -48,6 +49,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DataStorage.cs" />
+    <Compile Include="frmHoSo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmHoSo.Designer.cs">
+      <DependentUpon>frmHoSo.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmLogin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -72,6 +79,12 @@
     <Compile Include="frmRegister.Designer.cs">
       <DependentUpon>frmRegister.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmThongKeCamXuc.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmThongKeCamXuc.Designer.cs">
+      <DependentUpon>frmThongKeCamXuc.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmTimKiem.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -87,6 +100,9 @@
     <Compile Include="NhatKy.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="frmHoSo.resx">
+      <DependentUpon>frmHoSo.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmLogin.resx">
       <DependentUpon>frmLogin.cs</DependentUpon>
     </EmbeddedResource>
@@ -98,6 +114,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmRegister.resx">
       <DependentUpon>frmRegister.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmThongKeCamXuc.resx">
+      <DependentUpon>frmThongKeCamXuc.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmTimKiem.resx">
       <DependentUpon>frmTimKiem.cs</DependentUpon>
@@ -136,6 +155,15 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Ảnh chụp màn hình 2026-05-29 2214571.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ChatGPT Image Jun 4, 2026, 02_39_49 PM.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ChatGPT Image Jun 4, 2026, 02_51_34 PM.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ChatGPT Image Jun 4, 2026, 02_41_13 PM.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
