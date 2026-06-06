@@ -9,7 +9,6 @@ namespace DearDailyMe_Nhom
         {
             InitializeComponent();
 
-            // Đảm bảo nạp dữ liệu ngay khi Form được khởi tạo
             BindUserDataToForm();
         }
 

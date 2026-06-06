@@ -52,24 +52,22 @@
             this.dgvDanhSachNhatKy.EnableHeadersVisualStyles = false;
             this.dgvDanhSachNhatKy.GridColor = System.Drawing.SystemColors.Control;
             this.dgvDanhSachNhatKy.Location = new System.Drawing.Point(0, 0);
-            this.dgvDanhSachNhatKy.Margin = new System.Windows.Forms.Padding(6);
             this.dgvDanhSachNhatKy.Name = "dgvDanhSachNhatKy";
             this.dgvDanhSachNhatKy.RowHeadersWidth = 62;
             this.dgvDanhSachNhatKy.RowTemplate.Height = 28;
-            this.dgvDanhSachNhatKy.Size = new System.Drawing.Size(3196, 1654);
+            this.dgvDanhSachNhatKy.Size = new System.Drawing.Size(1214, 612);
             this.dgvDanhSachNhatKy.TabIndex = 0;
             this.dgvDanhSachNhatKy.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.dgvDanhSachNhatKy_RowPostPaint);
             // 
             // frmNhatKyCuaToi
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(19F, 37F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::DearDailyMe_Nhom.Properties.Resources.ChatGPT_Image_Jun_5__2026__05_38_55_PM;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(3196, 1654);
+            this.ClientSize = new System.Drawing.Size(1214, 612);
             this.Controls.Add(this.dgvDanhSachNhatKy);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(6);
             this.Name = "frmNhatKyCuaToi";
             this.Text = "frmNhatKyCuaToi";
             ((System.ComponentModel.ISupportInitialize)(this.dgvDanhSachNhatKy)).EndInit();

@@ -33,9 +33,9 @@
             this.radTuanNay = new System.Windows.Forms.RadioButton();
             this.radThangNay = new System.Windows.Forms.RadioButton();
             this.grbThoiGianThongKe = new System.Windows.Forms.GroupBox();
+            this.radioButton1 = new System.Windows.Forms.RadioButton();
             this.panel2 = new System.Windows.Forms.Panel();
             this.lblKetQuaThongKe = new System.Windows.Forms.Label();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
             this.panel1.SuspendLayout();
             this.grbThoiGianThongKe.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -95,6 +95,7 @@
             // 
             // grbThoiGianThongKe
             // 
+            this.grbThoiGianThongKe.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.grbThoiGianThongKe.Controls.Add(this.radThangNay);
             this.grbThoiGianThongKe.Controls.Add(this.radioButton1);
             this.grbThoiGianThongKe.Controls.Add(this.radTuanNay);
@@ -107,6 +108,19 @@
             this.grbThoiGianThongKe.TabIndex = 6;
             this.grbThoiGianThongKe.TabStop = false;
             this.grbThoiGianThongKe.Text = "Thời Gian Thống Kê";
+            // 
+            // radioButton1
+            // 
+            this.radioButton1.AutoSize = true;
+            this.radioButton1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.radioButton1.Location = new System.Drawing.Point(302, 18);
+            this.radioButton1.Margin = new System.Windows.Forms.Padding(1, 2, 1, 2);
+            this.radioButton1.Name = "radioButton1";
+            this.radioButton1.Size = new System.Drawing.Size(140, 36);
+            this.radioButton1.TabIndex = 3;
+            this.radioButton1.TabStop = true;
+            this.radioButton1.Text = "Hôm Nay";
+            this.radioButton1.UseVisualStyleBackColor = true;
             // 
             // panel2
             // 
@@ -123,6 +137,7 @@
             // 
             // lblKetQuaThongKe
             // 
+            this.lblKetQuaThongKe.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.lblKetQuaThongKe.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblKetQuaThongKe.Location = new System.Drawing.Point(273, 273);
             this.lblKetQuaThongKe.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
@@ -130,19 +145,6 @@
             this.lblKetQuaThongKe.Size = new System.Drawing.Size(923, 223);
             this.lblKetQuaThongKe.TabIndex = 7;
             this.lblKetQuaThongKe.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // radioButton1
-            // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioButton1.Location = new System.Drawing.Point(302, 18);
-            this.radioButton1.Margin = new System.Windows.Forms.Padding(1, 2, 1, 2);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(140, 36);
-            this.radioButton1.TabIndex = 3;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "Hôm Nay";
-            this.radioButton1.UseVisualStyleBackColor = true;
             // 
             // frmThongKeCamXuc
             // 
