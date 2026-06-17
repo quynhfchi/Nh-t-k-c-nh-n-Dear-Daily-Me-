@@ -3,6 +3,7 @@ using System.Linq;
 using System.Windows.Forms;
 using System.Text.RegularExpressions;
 using System.Globalization;
+using DearDailyMe_Nhom.DAL;
 
 namespace DearDailyMe_Nhom
 {
@@ -77,10 +78,26 @@ namespace DearDailyMe_Nhom
                 GioiTinh = radNam.Checked ? "Nam" : (radNu.Checked ? "Nữ" : "Khác")
             };
 
-            DataStorage.TatCaNguoiDung.Add(nguoiMoi);
-            DataStorage.NguoiDungHienTai = nguoiMoi;
+            NguoiDungDAL dal = new NguoiDungDAL();
 
-            MessageBox.Show($"Chúc mừng {nguoiMoi.HoTen} đã đăng ký thành công!");
+            if (dal.KiemTraTonTai(nguoiMoi.TenDangNhap))
+            {
+                MessageBox.Show("Tên đăng nhập đã tồn tại!");
+                return;
+            }
+
+            bool ketQua = dal.DangKy(nguoiMoi);
+
+            if (ketQua)
+            {
+                MessageBox.Show("Đăng ký thành công!");
+
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show("Đăng ký thất bại!");
+            }
         }
 
         private void lnklDangNhapTaiDay_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)

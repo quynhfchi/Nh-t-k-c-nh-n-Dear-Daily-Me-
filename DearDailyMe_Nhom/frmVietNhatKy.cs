@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DearDailyMe_Nhom.DAL;
+using System;
 using System.Drawing;
 using System.Windows.Forms;
 
@@ -26,10 +27,9 @@ namespace DearDailyMe_Nhom
 
         private void btnLuuNhatKy_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(txtNoiDung.Text) || txtNoiDung.Text == "sruguirhuihu")
+            if (string.IsNullOrWhiteSpace(txtNoiDung.Text))
             {
-                MessageBox.Show("Vui lòng viết vài dòng tâm tư trước khi lưu nhé!", "Nhắc nhở", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                txtNoiDung.Focus();
+                MessageBox.Show("Vui lòng nhập nội dung!");
                 return;
             }
 
@@ -43,25 +43,47 @@ namespace DearDailyMe_Nhom
 
             if (string.IsNullOrEmpty(camXucDuocChon))
             {
-                MessageBox.Show("Bạn chưa chọn cảm xúc cho hôm nay!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Bạn chưa chọn cảm xúc!");
                 return;
             }
 
-            NhatKy moi = new NhatKy();
-            moi.NgayGhi = DateTime.Now;
-            moi.NoiDung = txtNoiDung.Text;
-            moi.CamXuc = camXucDuocChon;
-
-            if (picKhoanhKhac.Tag != null)
+            NhatKy moi = new NhatKy
             {
-                moi.DuongDanAnh = picKhoanhKhac.Tag.ToString();
+                MaNguoiDung = DataStorage.NguoiDungHienTai.MaNguoiDung,
+                MaCamXuc = LayMaCamXuc(camXucDuocChon),
+
+                NgayGhi = DateTime.Now,
+                NoiDung = txtNoiDung.Text,
+                CamXuc = camXucDuocChon,
+                DuongDanAnh = picKhoanhKhac.Tag?.ToString()
+            };
+          
+            NhatKyDAL dal = new NhatKyDAL();
+
+            bool ok = dal.Them(moi);
+
+            if (ok)
+            {
+                MessageBox.Show("Đã lưu nhật ký!");
+
+                XoaForm();
+
+                RefreshLichSuForm();
             }
-
-            DataStorage.dsnhatky.Add(moi);
-
-            MessageBox.Show("Đã đăng nhật ký thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-            XoaForm();
+            else
+            {
+                MessageBox.Show("Lưu thất bại!");
+            }
+        }
+        private void RefreshLichSuForm()
+        {
+            foreach (Form f in Application.OpenForms)
+            {
+                if (f is frmNhatKyCuaToi form)
+                {
+                    form.ReloadData();
+                }
+            }
         }
 
         private void XoaForm()
@@ -105,6 +127,29 @@ namespace DearDailyMe_Nhom
         private void timer1_Tick(object sender, EventArgs e)
         {
             lblNgayViet.Text = DateTime.Now.ToString("HH:mm:ss - dddd, MMMM dd, yyyy");
+        }
+        private int LayMaCamXuc(string camXuc)
+        {
+            switch (camXuc)
+            {
+                case "Hạnh Phúc":
+                    return 1;
+
+                case "Vui Vẻ":
+                    return 2;
+
+                case "Bình Thường":
+                    return 3;
+
+                case "Buồn":
+                    return 4;
+
+                case "Thất Vọng":
+                    return 5;
+
+                default:
+                    return 3;
+            }
         }
     }
 }

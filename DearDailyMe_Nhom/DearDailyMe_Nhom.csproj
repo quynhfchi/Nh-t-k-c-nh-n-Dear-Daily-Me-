@@ -48,7 +48,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DataStorage.cs" />
+    <Compile Include="DAL\DBHelper.cs" />
+    <Compile Include="DAL\Interfaces\INguoiDungDAL.cs" />
+    <Compile Include="DAL\Interfaces\INhatKyDAL.cs" />
+    <Compile Include="DAL\NguoiDungDAL.cs" />
+    <Compile Include="DAL\NhatKyDAL.cs" />
+    <Compile Include="Entity\DataStorage.cs" />
+    <Compile Include="Entity\NguoiDung.cs" />
     <Compile Include="frmHoSo.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -97,7 +103,7 @@
     <Compile Include="frmVietNhatKy.Designer.cs">
       <DependentUpon>frmVietNhatKy.cs</DependentUpon>
     </Compile>
-    <Compile Include="NhatKy.cs" />
+    <Compile Include="Entity\NhatKy.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="frmHoSo.resx">
@@ -216,5 +222,6 @@
   <ItemGroup>
     <None Include="Resources\gấu2.png" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

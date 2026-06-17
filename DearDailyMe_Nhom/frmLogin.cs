@@ -1,5 +1,7 @@
-﻿using System;
+﻿using DearDailyMe_Nhom.DAL;
+using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Windows.Forms;
 
@@ -14,36 +16,39 @@ namespace DearDailyMe_Nhom
 
         private void btnDangNhap_Click(object sender, EventArgs e)
         {
-            string u = txtTenDangNhap.Text.Trim().ToLower();
+            string u = txtTenDangNhap.Text.Trim();
             string p = txtMatKhau.Text;
 
-            if (DataStorage.TatCaNguoiDung.Count == 0)
+            if (string.IsNullOrWhiteSpace(u))
             {
-                MessageBox.Show("Hệ thống hiện chưa có tài khoản nào!", "Thông báo");
+                MessageBox.Show("Vui lòng nhập tên đăng nhập!");
                 return;
             }
 
-            var userFound = DataStorage.TatCaNguoiDung.FirstOrDefault(x =>
-                x.TenDangNhap.Trim().ToLower() == u);
+            if (string.IsNullOrWhiteSpace(p))
+            {
+                MessageBox.Show("Vui lòng nhập mật khẩu!");
+                return;
+            }
+
+            NguoiDungDAL dal = new NguoiDungDAL();
+
+            NguoiDung userFound = dal.DangNhap(u, p);
 
             if (userFound == null)
             {
-                MessageBox.Show($"Tên đăng nhập '{u}' không tồn tại trên hệ thống!", "Lỗi");
-                return;
-            }
-
-            if (userFound.MatKhau != p)
-            {
-                MessageBox.Show("Mật khẩu không chính xác!", "Lỗi");
+                MessageBox.Show("Tên đăng nhập hoặc mật khẩu không đúng!", "Lỗi");
                 return;
             }
 
             DataStorage.NguoiDungHienTai = userFound;
-            MessageBox.Show($"Chào mừng {userFound.HoTen} đã quay trở lại!", "Dear Daily Me");
 
             this.Hide();
+
             frmMain fMain = new frmMain();
+
             fMain.ShowDialog();
+
             this.Close();
         }
 
@@ -69,5 +74,7 @@ namespace DearDailyMe_Nhom
         {
 
         }
+
+
     }
 }
