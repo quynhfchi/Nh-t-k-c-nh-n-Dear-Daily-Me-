@@ -1,14 +1,13 @@
-﻿using System;
+﻿using DearDailyMe_Nhom.DAL;
+using System;
 using System.Collections.Generic;
-using System.Data;
-using System.Data.SqlClient;
 using System.Windows.Forms;
-using System.Windows.Forms.DataVisualization.Charting;
 
 namespace DearDailyMe_Nhom
 {
     public partial class frmDiaryMain : Form
     {
+        private NhatKyDAL nhatKyDAL = new NhatKyDAL();
         public frmDiaryMain()
         {
             InitializeComponent();
@@ -16,99 +15,182 @@ namespace DearDailyMe_Nhom
 
         private void frmDiaryMain_Load(object sender, EventArgs e)
         {
-            try
-            {
-                flpDiaryContainer.AutoScroll = true;
-                flpDiaryContainer.Padding = new Padding(10);
-                LoadCamXucList();
-                RefreshAll();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Lỗi khởi động hệ thống: " + ex.Message);
-            }
-        }
+            flpDiaryContainer.AutoScroll = true;
+            flpDiaryContainer.Padding = new Padding(10);
 
-        public void RefreshAll()
-        {
-            LoadDuLieuNhatKy();
+            rdbHomNay.Checked = true;
+
             LoadThongKe();
-            LoadCauNoiHay();
         }
-
-        private void LoadCamXucList()
+        private void LayKhoangThoiGian(
+    out DateTime tuNgay,
+    out DateTime denNgay)
         {
-            DataTable dt = DataAccess.ExecuteQuery("SELECT MaCamXuc, TenCamXuc FROM CamXuc");
-            DataRow drAll = dt.NewRow();
-            drAll["MaCamXuc"] = 0;
-            drAll["TenCamXuc"] = "-- Tất cả cảm xúc --";
-            dt.Rows.InsertAt(drAll, 0);
+            denNgay = DateTime.Now;
 
-            cboFilterCamXuc.DataSource = dt;
-            cboFilterCamXuc.DisplayMember = "TenCamXuc";
-            cboFilterCamXuc.ValueMember = "MaCamXuc";
-        }
-
-        private void LoadDuLieuNhatKy()
-        {
-            flpDiaryContainer.Controls.Clear();
-
-            string query = @"SELECT N.NoiDung, N.NgayGhi, C.TenCamXuc 
-                     FROM NhatKy N 
-                     JOIN CamXuc C ON N.MaCamXuc = C.MaCamXuc";
-
-            DataTable dt = DataAccess.ExecuteQuery(query);
-
-            if (dt.Rows.Count == 0)
+            if (rdbHomNay.Checked)
             {
-                MessageBox.Show("Không tìm thấy dữ liệu nào!");
+                tuNgay = DateTime.Today;
+            }
+            else if (rdbTuanNay.Checked)
+            {
+                int thu = (int)DateTime.Today.DayOfWeek;
+
+                if (thu == 0)
+                    thu = 7;
+
+                tuNgay = DateTime.Today.AddDays(-(thu - 1));
+            }
+            else
+            {
+                tuNgay = new DateTime(
+                    DateTime.Today.Year,
+                    DateTime.Today.Month,
+                    1);
+            }
+        }
+        private void LoadThongKe()
+        {
+            LayKhoangThoiGian(out DateTime tuNgay,
+                              out DateTime denNgay);
+
+            int maNguoiDung =
+                DataStorage.NguoiDungHienTai.MaNguoiDung;
+
+            Dictionary<int, int> tk =
+                nhatKyDAL.ThongKeCamXuc(
+                    maNguoiDung,
+                    tuNgay,
+                    denNgay);
+                   
+            if (tk.Count == 0)
+            {
+                lblHPCount.Text = "";
+                lblVVCount.Text = "";
+                lblBTCount.Text = "";
+                lblBCount.Text = "";
+                lblTVCount.Text = "";
+                lblTong.Text = "";
+
+                rtbTinHieu.Clear();
                 return;
             }
 
-            foreach (DataRow row in dt.Rows)
-            {
-                ucDiaryCard card = new ucDiaryCard();
-                string ngay = row["NgayGhi"] != DBNull.Value ? Convert.ToDateTime(row["NgayGhi"]).ToString("dd/MM/yyyy") : "N/A";
-                string noiDung = row["NoiDung"] != DBNull.Value ? row["NoiDung"].ToString() : "";
-                string camXuc = row["TenCamXuc"] != DBNull.Value ? row["TenCamXuc"].ToString() : "Bình thường";
+            lblHPCount.Text = "0";
+            lblVVCount.Text = "0";
+            lblBTCount.Text = "0";
+            lblBCount.Text = "0";
+            lblTVCount.Text = "0";
 
-                card.SetData(ngay, noiDung, camXuc);
-                flpDiaryContainer.Controls.Add(card);
+            foreach (var item in tk)
+            {
+                switch (item.Key)
+                {
+                    case 1:
+                        lblHPCount.Text = item.Value.ToString();
+                        break;
+
+                    case 2:
+                        lblVVCount.Text = item.Value.ToString();
+                        break;
+
+                    case 3:
+                        lblBTCount.Text = item.Value.ToString();
+                        break;
+
+                    case 4:
+                        lblBCount.Text = item.Value.ToString();
+                        break;
+
+                    case 5:
+                        lblTVCount.Text = item.Value.ToString();
+                        break;
+                }
+            }
+
+            lblTong.Text =
+                nhatKyDAL.DemTongNhatKy(
+                    maNguoiDung,
+                    tuNgay,
+                    denNgay)
+                .ToString();
+
+            CapNhatTinHieuVuTru(tk);
+        }
+        private void rdbHomNay_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rdbHomNay.Checked)
+                LoadThongKe();
+        }
+
+        private void rdbTuanNay_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rdbTuanNay.Checked)
+                LoadThongKe();
+        }
+
+        private void rdbThangNay_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rdbThangNay.Checked)
+                LoadThongKe();
+        }
+        private void CapNhatTinHieuVuTru(Dictionary<int, int> tk)
+        {
+            if (tk.Count == 0)
+            {
+                rtbTinHieu.Text = "Bạn chưa có nhật ký nào trong khoảng thời gian này.";
+                return;
+            }
+
+            int camXucChuDao = 0;
+            int max = 0;
+
+            foreach (var item in tk)
+            {
+                if (item.Value > max)
+                {
+                    max = item.Value;
+                    camXucChuDao = item.Key;
+                }
+            }
+
+            Random rd = new Random();
+
+            switch (camXucChuDao)
+            {
+                case 1:
+                    string[] hp =
+                    {
+                "Hạnh phúc sẽ càng ý nghĩa khi bạn biết trân trọng những điều nhỏ bé.",
+                "Hôm nay hãy tiếp tục lan tỏa năng lượng tích cực của mình.",
+                "Bạn đang có rất nhiều khoảnh khắc đáng nhớ."
+            };
+                    rtbTinHieu.Text = hp[rd.Next(hp.Length)];
+                    break;
+
+                case 2:
+                    string[] vv =
+                    {
+                "Niềm vui của bạn có thể truyền cảm hứng cho người khác.",
+                "Hãy giữ nụ cười trên môi.",
+                "Một ngày vui luôn bắt đầu từ suy nghĩ tích cực."
+            };
+                    rtbTinHieu.Text = vv[rd.Next(vv.Length)];
+                    break;
+
+                case 3:
+                    rtbTinHieu.Text = "Sự bình yên cũng là một dạng hạnh phúc.";
+                    break;
+
+                case 4:
+                    rtbTinHieu.Text = "Đừng quá khắt khe với bản thân, mọi chuyện rồi sẽ ổn.";
+                    break;
+
+                case 5:
+                    rtbTinHieu.Text = "Mỗi lần vấp ngã là một cơ hội để trưởng thành hơn.";
+                    break;
             }
         }
 
-        private void LoadThongKe()
-        {
-            if (chartCamXuc == null) return;
-            string query = @"SELECT C.TenCamXuc, COUNT(N.MaNhatKy) as SoLuong 
-                             FROM CamXuc C 
-                             LEFT JOIN NhatKy N ON C.MaCamXuc = N.MaCamXuc 
-                             WHERE N.NgayGhi >= @TuNgay AND N.NgayGhi <= @DenNgay
-                             GROUP BY C.TenCamXuc";
-
-            DataTable dt = DataAccess.ExecuteQuery(query, new SqlParameter[] {
-                new SqlParameter("@TuNgay", dtpFrom.Value.Date),
-                new SqlParameter("@DenNgay", dtpTo.Value.Date.AddDays(1))
-            });
-
-            chartCamXuc.Series.Clear();
-            var series = chartCamXuc.Series.Add("CamXuc");
-            series.ChartType = SeriesChartType.Pie;
-            foreach (DataRow row in dt.Rows)
-                series.Points.AddXY(row["TenCamXuc"], row["SoLuong"]);
-        }
-
-        private void LoadCauNoiHay()
-        {
-            if (lblCauNoiHay == null) return;
-            string[] quotes = { "Mọi chuyện rồi sẽ ổn thôi...", "Hãy tin vào bản thân mình.", "Nhật ký là nơi lưu giữ hạnh phúc." };
-            lblCauNoiHay.Text = quotes[new Random().Next(quotes.Length)];
-        }
-
-        private void cboFilterCamXuc_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (cboFilterCamXuc.SelectedIndex > -1 && cboFilterCamXuc.DataSource != null)
-                LoadDuLieuNhatKy();
-        }
-    }
+    }     
 }

@@ -46,21 +46,11 @@ namespace DearDailyMe_Nhom
                     dgvDanhSachNhatKy.Rows[idx].Cells["NgayGhi"].Value = item.NgayGhi.ToString("dd/MM/yyyy HH:mm");
                     dgvDanhSachNhatKy.Rows[idx].Cells["NoiDung"].Value = item.NoiDung;
                     dgvDanhSachNhatKy.Rows[idx].Cells["MaCamXuc"].Value = item.MaCamXuc;
-
-                    if (!string.IsNullOrEmpty(item.DuongDanAnh) && File.Exists(item.DuongDanAnh))
-                    {
-                        try
-                        {
-                            dgvDanhSachNhatKy.Rows[idx].Cells["AnhKhoanhKhac"].Value = Image.FromFile(item.DuongDanAnh);
-                        }
-                        catch
-                        {
-                            dgvDanhSachNhatKy.Rows[idx].Cells["AnhKhoanhKhac"].Value = null;
-                        }
-                    }
                 }
             }
         }
+
+                   
 
         public void ReloadData()
         {

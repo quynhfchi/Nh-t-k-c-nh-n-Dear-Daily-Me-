@@ -11,13 +11,12 @@ namespace DearDailyMe_Nhom
         public string TieuDe { get; set; }
         public string NoiDung { get; set; }
         public DateTime NgayGhi { get; set; }
-        public string DuongDanAnh { get; set; }
 
         public NhatKy()
         {
         }
 
-        public NhatKy(int maNhatKy, int maNguoiDung, int maCamXuc, string tieuDe, string noiDung, DateTime ngayGhi, string camXuc = null, string duongDanAnh = null)
+        public NhatKy(int maNhatKy, int maNguoiDung, int maCamXuc, string tieuDe, string noiDung, DateTime ngayGhi, string camXuc = null)
         {
             MaNhatKy = maNhatKy;
             MaNguoiDung = maNguoiDung;
@@ -26,7 +25,7 @@ namespace DearDailyMe_Nhom
             NoiDung = noiDung;
             NgayGhi = ngayGhi;
             CamXuc = camXuc;
-            DuongDanAnh = duongDanAnh;
+           
         }
     }
 }

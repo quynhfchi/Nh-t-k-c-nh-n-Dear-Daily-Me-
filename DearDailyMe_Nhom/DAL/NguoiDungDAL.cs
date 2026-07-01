@@ -1,8 +1,9 @@
 ﻿using DearDailyMe_Nhom;
 using DearDailyMe_Nhom.DAL;
 using DearDailyMe_Nhom.DAL.Interfaces;
-using System;
 using Microsoft.Data.SqlClient;
+using System;
+using System.Windows.Forms;
 
 namespace DearDailyMe_Nhom.DAL
 {
@@ -10,7 +11,7 @@ namespace DearDailyMe_Nhom.DAL
     {
         public bool DangKy(NguoiDung nd)
         {
-            using (SqlConnection conn = new SqlConnection(DBHelper.ConnectionString))
+            using (SqlConnection conn = DBHelper.GetConnection())
             {
                 try
                 {
@@ -28,8 +29,9 @@ namespace DearDailyMe_Nhom.DAL
 
                     return cmd.ExecuteNonQuery() > 0;
                 }
-                catch
+                catch (Exception ex)
                 {
+                    MessageBox.Show(ex.Message);
                     return false;
                 }
             }
@@ -37,7 +39,7 @@ namespace DearDailyMe_Nhom.DAL
 
         public NguoiDung DangNhap(string tenDangNhap, string matKhau)
         {
-            using (SqlConnection conn = new SqlConnection(DBHelper.ConnectionString))
+            using (SqlConnection conn = DBHelper.GetConnection())
             {
                 try
                 {
@@ -71,8 +73,9 @@ namespace DearDailyMe_Nhom.DAL
                         }
                     }
                 }
-                catch
+                catch (Exception ex)
                 {
+                    MessageBox.Show(ex.Message);
                     return null;
                 }
             }
@@ -81,7 +84,7 @@ namespace DearDailyMe_Nhom.DAL
 
         public bool KiemTraTonTai(string tenDangNhap)
         {
-            using (SqlConnection conn = new SqlConnection(DBHelper.ConnectionString))
+            using (SqlConnection conn = DBHelper.GetConnection())
             {
                 try
                 {
@@ -94,8 +97,9 @@ namespace DearDailyMe_Nhom.DAL
                     int count = Convert.ToInt32(cmd.ExecuteScalar());
                     return count > 0;
                 }
-                catch
+                catch (Exception ex)
                 {
+                    MessageBox.Show(ex.Message);
                     return false;
                 }
             }

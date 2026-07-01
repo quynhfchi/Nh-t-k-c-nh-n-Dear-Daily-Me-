@@ -1,7 +1,8 @@
 ﻿using DearDailyMe_Nhom.DAL.Interfaces;
+using Microsoft.Data.SqlClient;
 using System;
 using System.Collections.Generic;
-using System.Data.SqlClient;
+using System.Data;
 
 namespace DearDailyMe_Nhom.DAL
 {
@@ -9,13 +10,13 @@ namespace DearDailyMe_Nhom.DAL
     {
         public bool Them(NhatKy nk)
         {
-            using (SqlConnection conn = new SqlConnection(DBHelper.ConnectionString))
+            using (SqlConnection conn = DBHelper.GetConnection())
             {
                 try
                 {
                     conn.Open();
-                    string sql = @"INSERT INTO NhatKy (MaNguoiDung, MaCamXuc, TieuDe, NoiDung, NgayGhi, DuongDanAnh) 
-                                   VALUES (@MaNguoiDung, @MaCamXuc, @TieuDe, @NoiDung, @NgayGhi, @DuongDanAnh)";
+                    string sql = @"INSERT INTO NhatKy (MaNguoiDung, MaCamXuc, TieuDe, NoiDung, NgayGhi ) 
+                                   VALUES (@MaNguoiDung, @MaCamXuc, @TieuDe, @NoiDung, @NgayGhi )";
 
                     using (SqlCommand cmd = new SqlCommand(sql, conn))
                     {
@@ -24,7 +25,7 @@ namespace DearDailyMe_Nhom.DAL
                         cmd.Parameters.AddWithValue("@TieuDe", string.IsNullOrWhiteSpace(nk.TieuDe) ? (object)DBNull.Value : nk.TieuDe);
                         cmd.Parameters.AddWithValue("@NoiDung", nk.NoiDung ?? (object)DBNull.Value);
                         cmd.Parameters.AddWithValue("@NgayGhi", nk.NgayGhi);
-                        cmd.Parameters.AddWithValue("@DuongDanAnh", string.IsNullOrEmpty(nk.DuongDanAnh) ? (object)DBNull.Value : nk.DuongDanAnh);
+                       
 
                         return cmd.ExecuteNonQuery() > 0;
                     }
@@ -42,13 +43,13 @@ namespace DearDailyMe_Nhom.DAL
         public List<NhatKy> LayTatCa()
         {
             List<NhatKy> ds = new List<NhatKy>();
-            using (SqlConnection conn = new SqlConnection(DBHelper.ConnectionString))
+            using(SqlConnection conn = DBHelper.GetConnection())
             {
                 try
                 {
                     conn.Open();
                     // Sửa lại SELECT để lấy đủ các cột bạn cần dùng trong vòng lặp
-                    string sql = "SELECT MaNhatKy, MaNguoiDung, MaCamXuc, TieuDe, NoiDung, NgayGhi, DuongDanAnh FROM NhatKy";
+                    string sql = "SELECT MaNhatKy, MaNguoiDung, MaCamXuc, TieuDe, NoiDung, NgayGhi FROM NhatKy";
                     using (SqlCommand cmd = new SqlCommand(sql, conn))
                     {
                         using (SqlDataReader reader = cmd.ExecuteReader())
@@ -63,7 +64,7 @@ namespace DearDailyMe_Nhom.DAL
                                     TieuDe = reader["TieuDe"] == DBNull.Value ? "" : reader["TieuDe"].ToString(),
                                     NoiDung = reader["NoiDung"] == DBNull.Value ? "" : reader["NoiDung"].ToString(),
                                     NgayGhi = Convert.ToDateTime(reader["NgayGhi"]),
-                                    DuongDanAnh = reader["DuongDanAnh"] == DBNull.Value ? "" : reader["DuongDanAnh"].ToString()
+                                  
                                 });
                             }
                         }
@@ -75,6 +76,105 @@ namespace DearDailyMe_Nhom.DAL
                 }
             }
             return ds;
+        }
+       
+        public List<NhatKy> LayTheoNguoiDung(int maNguoiDung)
+        {
+            List<NhatKy> ds = new List<NhatKy>();
+
+            using (SqlConnection conn = DBHelper.GetConnection())
+            {
+                conn.Open();
+
+                string sql = @"SELECT *
+                       FROM NhatKy
+                       WHERE MaNguoiDung=@MaNguoiDung
+                       ORDER BY NgayGhi DESC";
+
+                SqlCommand cmd = new SqlCommand(sql, conn);
+                cmd.Parameters.AddWithValue("@MaNguoiDung", maNguoiDung);
+
+                SqlDataReader rd = cmd.ExecuteReader();
+
+                while (rd.Read())
+                {
+                    ds.Add(new NhatKy()
+                    {
+                        MaNhatKy = Convert.ToInt32(rd["MaNhatKy"]),
+                        MaNguoiDung = Convert.ToInt32(rd["MaNguoiDung"]),
+                        MaCamXuc = Convert.ToInt32(rd["MaCamXuc"]),
+                        TieuDe = rd["TieuDe"].ToString(),
+                        NoiDung = rd["NoiDung"].ToString(),
+                        NgayGhi = Convert.ToDateTime(rd["NgayGhi"])
+                    });
+                }
+            }
+
+            return ds;
+        }
+        public Dictionary<int, int> ThongKeCamXuc(
+        int maNguoiDung,
+        DateTime tuNgay,
+        DateTime denNgay)
+        {
+            Dictionary<int, int> tk = new Dictionary<int, int>();
+
+            using (SqlConnection conn = DBHelper.GetConnection())
+            {
+                conn.Open();
+
+                string sql = @"
+        SELECT MaCamXuc,
+               COUNT(*) AS SoLuong
+        FROM NhatKy
+        WHERE MaNguoiDung=@MaNguoiDung
+          AND NgayGhi>=@TuNgay
+          AND NgayGhi<=@DenNgay
+        GROUP BY MaCamXuc";
+
+                SqlCommand cmd = new SqlCommand(sql, conn);
+
+                cmd.Parameters.AddWithValue("@MaNguoiDung", maNguoiDung);
+                cmd.Parameters.AddWithValue("@TuNgay", tuNgay);
+                cmd.Parameters.AddWithValue("@DenNgay", denNgay);
+
+                SqlDataReader rd = cmd.ExecuteReader();
+
+                while (rd.Read())
+                {
+                    tk.Add(
+                        Convert.ToInt32(rd["MaCamXuc"]),
+                        Convert.ToInt32(rd["SoLuong"])
+                    );
+                }
+            }
+
+            return tk;
+        }
+        public int DemTongNhatKy(
+        int maNguoiDung,
+        DateTime tuNgay,
+        DateTime denNgay)
+        {
+            using (SqlConnection conn = DBHelper.GetConnection())
+            {
+                conn.Open();
+
+                string sql = @"
+        SELECT COUNT(*)
+        FROM NhatKy
+        WHERE MaNguoiDung=@MaNguoiDung
+        AND NgayGhi>=@TuNgay
+        AND NgayGhi<=@DenNgay";
+
+                SqlCommand cmd = new SqlCommand(sql, conn);
+
+                cmd.Parameters.AddWithValue("@MaNguoiDung", maNguoiDung);
+                cmd.Parameters.AddWithValue("@TuNgay", tuNgay);
+                cmd.Parameters.AddWithValue("@DenNgay", denNgay);
+
+                return Convert.ToInt32(cmd.ExecuteScalar());
+            }
         }
     }
 }

@@ -31,7 +31,6 @@
             this.components = new System.ComponentModel.Container();
             this.txtNoiDung = new System.Windows.Forms.TextBox();
             this.btnLuu = new System.Windows.Forms.Button();
-            this.btnThemAnh = new System.Windows.Forms.Button();
             this.radHanhPhuc = new System.Windows.Forms.RadioButton();
             this.radVuiVe = new System.Windows.Forms.RadioButton();
             this.radBinhThuong = new System.Windows.Forms.RadioButton();
@@ -44,9 +43,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.lblNgayHienTai = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.picKhoanhKhac = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            ((System.ComponentModel.ISupportInitialize)(this.picKhoanhKhac)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -76,19 +73,6 @@
             this.btnLuu.UseVisualStyleBackColor = false;
             this.btnLuu.Click += new System.EventHandler(this.btnLuuNhatKy_Click);
             // 
-            // btnThemAnh
-            // 
-            this.btnThemAnh.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.btnThemAnh.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnThemAnh.Location = new System.Drawing.Point(718, 388);
-            this.btnThemAnh.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.btnThemAnh.Name = "btnThemAnh";
-            this.btnThemAnh.Size = new System.Drawing.Size(122, 34);
-            this.btnThemAnh.TabIndex = 5;
-            this.btnThemAnh.Text = "📸 Thêm Ảnh ";
-            this.btnThemAnh.UseVisualStyleBackColor = false;
-            this.btnThemAnh.Click += new System.EventHandler(this.btnThemAnh_Click);
-            // 
             // radHanhPhuc
             // 
             this.radHanhPhuc.AutoSize = true;
@@ -96,7 +80,7 @@
             this.radHanhPhuc.Location = new System.Drawing.Point(171, 487);
             this.radHanhPhuc.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.radHanhPhuc.Name = "radHanhPhuc";
-            this.radHanhPhuc.Size = new System.Drawing.Size(136, 25);
+            this.radHanhPhuc.Size = new System.Drawing.Size(270, 49);
             this.radHanhPhuc.TabIndex = 6;
             this.radHanhPhuc.TabStop = true;
             this.radHanhPhuc.Text = "😍 Hạnh Phúc";
@@ -109,7 +93,7 @@
             this.radVuiVe.Location = new System.Drawing.Point(337, 487);
             this.radVuiVe.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.radVuiVe.Name = "radVuiVe";
-            this.radVuiVe.Size = new System.Drawing.Size(106, 25);
+            this.radVuiVe.Size = new System.Drawing.Size(208, 49);
             this.radVuiVe.TabIndex = 7;
             this.radVuiVe.TabStop = true;
             this.radVuiVe.Text = "😊 Vui Vẻ";
@@ -122,7 +106,7 @@
             this.radBinhThuong.Location = new System.Drawing.Point(470, 487);
             this.radBinhThuong.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.radBinhThuong.Name = "radBinhThuong";
-            this.radBinhThuong.Size = new System.Drawing.Size(150, 25);
+            this.radBinhThuong.Size = new System.Drawing.Size(298, 49);
             this.radBinhThuong.TabIndex = 8;
             this.radBinhThuong.TabStop = true;
             this.radBinhThuong.Text = "😐 Bình Thường";
@@ -135,7 +119,7 @@
             this.radBuon.Location = new System.Drawing.Point(644, 487);
             this.radBuon.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.radBuon.Name = "radBuon";
-            this.radBuon.Size = new System.Drawing.Size(97, 25);
+            this.radBuon.Size = new System.Drawing.Size(190, 49);
             this.radBuon.TabIndex = 9;
             this.radBuon.TabStop = true;
             this.radBuon.Text = "😢 Buồn";
@@ -148,7 +132,7 @@
             this.radThatVong.Location = new System.Drawing.Point(760, 487);
             this.radThatVong.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.radThatVong.Name = "radThatVong";
-            this.radThatVong.Size = new System.Drawing.Size(132, 25);
+            this.radThatVong.Size = new System.Drawing.Size(264, 49);
             this.radThatVong.TabIndex = 10;
             this.radThatVong.TabStop = true;
             this.radThatVong.Text = "😫 Thất Vọng";
@@ -162,7 +146,7 @@
             this.lblNgayViet.ForeColor = System.Drawing.SystemColors.ControlText;
             this.lblNgayViet.Location = new System.Drawing.Point(32, 112);
             this.lblNgayViet.Name = "lblNgayViet";
-            this.lblNgayViet.Size = new System.Drawing.Size(172, 21);
+            this.lblNgayViet.Size = new System.Drawing.Size(350, 45);
             this.lblNgayViet.TabIndex = 11;
             this.lblNgayViet.Text = "Gửi gắm ngày hôm nay";
             this.lblNgayViet.Click += new System.EventHandler(this.lblNgayViet_Click);
@@ -174,7 +158,7 @@
             this.lblCamXuc.ForeColor = System.Drawing.SystemColors.ControlText;
             this.lblCamXuc.Location = new System.Drawing.Point(453, 443);
             this.lblCamXuc.Name = "lblCamXuc";
-            this.lblCamXuc.Size = new System.Drawing.Size(197, 21);
+            this.lblCamXuc.Size = new System.Drawing.Size(404, 45);
             this.lblCamXuc.TabIndex = 12;
             this.lblCamXuc.Text = "Cảm xúc hôm nay thế nào?";
             this.lblCamXuc.Click += new System.EventHandler(this.lblCamXuc_Click);
@@ -187,7 +171,7 @@
             this.lblNoiDung.ForeColor = System.Drawing.SystemColors.ControlText;
             this.lblNoiDung.Location = new System.Drawing.Point(32, 160);
             this.lblNoiDung.Name = "lblNoiDung";
-            this.lblNoiDung.Size = new System.Drawing.Size(200, 21);
+            this.lblNoiDung.Size = new System.Drawing.Size(412, 45);
             this.lblNoiDung.TabIndex = 13;
             this.lblNoiDung.Text = "Thả tâm tư của bạn vào đây";
             this.lblNoiDung.Click += new System.EventHandler(this.lblNoiDung_Click);
@@ -210,7 +194,7 @@
             this.label1.ForeColor = System.Drawing.SystemColors.Highlight;
             this.label1.Location = new System.Drawing.Point(0, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(238, 49);
+            this.label1.Size = new System.Drawing.Size(475, 97);
             this.label1.TabIndex = 15;
             this.label1.Text = "Viết Nhật Ký";
             // 
@@ -219,7 +203,7 @@
             this.lblNgayHienTai.AutoSize = true;
             this.lblNgayHienTai.Location = new System.Drawing.Point(370, 112);
             this.lblNgayHienTai.Name = "lblNgayHienTai";
-            this.lblNgayHienTai.Size = new System.Drawing.Size(0, 28);
+            this.lblNgayHienTai.Size = new System.Drawing.Size(0, 54);
             this.lblNgayHienTai.TabIndex = 15;
             // 
             // timer1
@@ -227,18 +211,6 @@
             this.timer1.Enabled = true;
             this.timer1.Interval = 1000;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
-            // 
-            // picKhoanhKhac
-            // 
-            this.picKhoanhKhac.BackColor = System.Drawing.SystemColors.MenuBar;
-            this.picKhoanhKhac.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.picKhoanhKhac.Location = new System.Drawing.Point(644, 202);
-            this.picKhoanhKhac.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.picKhoanhKhac.Name = "picKhoanhKhac";
-            this.picKhoanhKhac.Size = new System.Drawing.Size(262, 162);
-            this.picKhoanhKhac.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.picKhoanhKhac.TabIndex = 2;
-            this.picKhoanhKhac.TabStop = false;
             // 
             // pictureBox1
             // 
@@ -253,7 +225,7 @@
             // 
             // frmVietNhatKy
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 28F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(22F, 54F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1066, 579);
             this.Controls.Add(this.lblNgayHienTai);
@@ -267,17 +239,14 @@
             this.Controls.Add(this.radBinhThuong);
             this.Controls.Add(this.radVuiVe);
             this.Controls.Add(this.radHanhPhuc);
-            this.Controls.Add(this.btnThemAnh);
             this.Controls.Add(this.btnLuu);
             this.Controls.Add(this.txtNoiDung);
-            this.Controls.Add(this.picKhoanhKhac);
             this.Controls.Add(this.pictureBox1);
             this.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "frmVietNhatKy";
             this.Text = "frmVietNhatKy";
             this.Load += new System.EventHandler(this.frmVietNhatKy_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.picKhoanhKhac)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -285,10 +254,8 @@
         }
 
         #endregion
-        private System.Windows.Forms.PictureBox picKhoanhKhac;
         private System.Windows.Forms.TextBox txtNoiDung;
         private System.Windows.Forms.Button btnLuu;
-        private System.Windows.Forms.Button btnThemAnh;
         private System.Windows.Forms.RadioButton radHanhPhuc;
         private System.Windows.Forms.RadioButton radVuiVe;
         private System.Windows.Forms.RadioButton radBinhThuong;

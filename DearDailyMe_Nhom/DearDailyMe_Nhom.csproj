@@ -226,6 +226,12 @@
     <Compile Include="ucDiaryCard.Designer.cs">
       <DependentUpon>ucDiaryCard.cs</DependentUpon>
     </Compile>
+    <Compile Include="ucThongKeCamXuc.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucThongKeCamXuc.Designer.cs">
+      <DependentUpon>ucThongKeCamXuc.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="frmDiaryMain.resx">
       <DependentUpon>frmDiaryMain.cs</DependentUpon>
     </EmbeddedResource>
@@ -265,6 +271,9 @@
     </Compile>
     <EmbeddedResource Include="ucDiaryCard.resx">
       <DependentUpon>ucDiaryCard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ucThongKeCamXuc.resx">
+      <DependentUpon>ucThongKeCamXuc.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
