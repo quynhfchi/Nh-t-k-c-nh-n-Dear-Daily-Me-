@@ -220,18 +220,6 @@
     <Compile Include="Entity\NhatKy.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ucDiaryCard.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="ucDiaryCard.Designer.cs">
-      <DependentUpon>ucDiaryCard.cs</DependentUpon>
-    </Compile>
-    <Compile Include="ucThongKeCamXuc.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="ucThongKeCamXuc.Designer.cs">
-      <DependentUpon>ucThongKeCamXuc.cs</DependentUpon>
-    </Compile>
     <EmbeddedResource Include="frmDiaryMain.resx">
       <DependentUpon>frmDiaryMain.cs</DependentUpon>
     </EmbeddedResource>
@@ -269,12 +257,6 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="ucDiaryCard.resx">
-      <DependentUpon>ucDiaryCard.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ucThongKeCamXuc.resx">
-      <DependentUpon>ucThongKeCamXuc.cs</DependentUpon>
-    </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
