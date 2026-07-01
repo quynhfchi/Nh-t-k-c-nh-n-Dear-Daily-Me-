@@ -1,9 +1,6 @@
-﻿using DearDailyMe_Nhom.DAL;
-using System;
-using System.Collections.Generic;
-using System.Data.SqlClient;
-using System.Linq;
+﻿using System;
 using System.Windows.Forms;
+using DearDailyMe_Nhom.DAL;
 
 namespace DearDailyMe_Nhom
 {
@@ -17,39 +14,48 @@ namespace DearDailyMe_Nhom
         private void btnDangNhap_Click(object sender, EventArgs e)
         {
             string u = txtTenDangNhap.Text.Trim();
-            string p = txtMatKhau.Text;
+            string p = txtMatKhau.Text.Trim();
 
             if (string.IsNullOrWhiteSpace(u))
             {
-                MessageBox.Show("Vui lòng nhập tên đăng nhập!");
+                MessageBox.Show("Vui lòng nhập tên đăng nhập!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtTenDangNhap.Focus();
                 return;
             }
 
             if (string.IsNullOrWhiteSpace(p))
             {
-                MessageBox.Show("Vui lòng nhập mật khẩu!");
+                MessageBox.Show("Vui lòng nhập mật khẩu!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtMatKhau.Focus();
                 return;
             }
 
-            NguoiDungDAL dal = new NguoiDungDAL();
-
-            NguoiDung userFound = dal.DangNhap(u, p);
-
-            if (userFound == null)
+            try
             {
-                MessageBox.Show("Tên đăng nhập hoặc mật khẩu không đúng!", "Lỗi");
-                return;
+                NguoiDungDAL dal = new NguoiDungDAL();
+                NguoiDung userFound = dal.DangNhap(u, p);
+
+                if (userFound == null)
+                {
+                    MessageBox.Show("Tên đăng nhập hoặc mật khẩu không đúng!", "Lỗi đăng nhập", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                // Lưu thông tin người dùng vào bộ nhớ chung
+                DataStorage.NguoiDungHienTai = userFound;
+
+                // Ẩn form đăng nhập và mở form chính
+                this.Hide();
+                frmMain fMain = new frmMain();
+                fMain.ShowDialog();
+
+                // Khi form chính đóng lại, đóng luôn ứng dụng
+                this.Close();
             }
-
-            DataStorage.NguoiDungHienTai = userFound;
-
-            this.Hide();
-
-            frmMain fMain = new frmMain();
-
-            fMain.ShowDialog();
-
-            this.Close();
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi kết nối cơ sở dữ liệu: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void lnklbDangKy_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -57,24 +63,7 @@ namespace DearDailyMe_Nhom
             frmRegister fReg = new frmRegister();
             this.Hide();
             fReg.ShowDialog();
-            this.Show();
+            this.Show(); // Quay lại form đăng nhập sau khi đóng form đăng ký
         }
-
-        private void frmLogin_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void panel2_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void lblTenDangNhap_Click(object sender, EventArgs e)
-        {
-
-        }
-
-
     }
 }

@@ -82,7 +82,6 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(2339, 1287);
             this.panel2.TabIndex = 8;
-            this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
             // 
             // lnklbDangKy
             // 
@@ -143,7 +142,6 @@
             this.lblTenDangNhap.Size = new System.Drawing.Size(365, 55);
             this.lblTenDangNhap.TabIndex = 4;
             this.lblTenDangNhap.Text = "Tên Đăng Nhập";
-            this.lblTenDangNhap.Click += new System.EventHandler(this.lblTenDangNhap_Click);
             // 
             // txtMatKhau
             // 
@@ -167,7 +165,6 @@
             this.Name = "frmLogin";
             this.Text = "Đăng Nhập";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
-            this.Load += new System.EventHandler(this.frmLogin_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);

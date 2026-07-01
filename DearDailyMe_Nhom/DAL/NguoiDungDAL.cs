@@ -2,7 +2,7 @@
 using DearDailyMe_Nhom.DAL;
 using DearDailyMe_Nhom.DAL.Interfaces;
 using System;
-using System.Data.SqlClient;
+using Microsoft.Data.SqlClient;
 
 namespace DearDailyMe_Nhom.DAL
 {
@@ -10,134 +10,94 @@ namespace DearDailyMe_Nhom.DAL
     {
         public bool DangKy(NguoiDung nd)
         {
-            SqlConnection conn = new SqlConnection(DBHelper.ConnectionString);
-
-            try
+            using (SqlConnection conn = new SqlConnection(DBHelper.ConnectionString))
             {
-                conn.Open();
+                try
+                {
+                    conn.Open();
+                    string sql = @"INSERT INTO TaiKhoan (TenDangNhap, MatKhau, HoTen, Email, NgaySinh, GioiTinh) 
+                                   VALUES (@TenDangNhap, @MatKhau, @HoTen, @Email, @NgaySinh, @GioiTinh)";
 
-                string sql =
-                @"INSERT INTO TaiKhoan
-        (
-            TenDangNhap,
-            MatKhau,
-            HoTen,
-            Email,
-            NgaySinh,
-            GioiTinh
-        )
-        VALUES
-        (
-            @TenDangNhap,
-            @MatKhau,
-            @HoTen,
-            @Email,
-            @NgaySinh,
-            @GioiTinh
-        )";
+                    SqlCommand cmd = new SqlCommand(sql, conn);
+                    cmd.Parameters.AddWithValue("@TenDangNhap", (object)nd.TenDangNhap ?? DBNull.Value);
+                    cmd.Parameters.AddWithValue("@MatKhau", (object)nd.MatKhau ?? DBNull.Value);
+                    cmd.Parameters.AddWithValue("@HoTen", (object)nd.HoTen ?? DBNull.Value);
+                    cmd.Parameters.AddWithValue("@Email", (object)nd.Email ?? DBNull.Value);
+                    cmd.Parameters.AddWithValue("@NgaySinh", (object)nd.NgaySinh ?? DBNull.Value);
+                    cmd.Parameters.AddWithValue("@GioiTinh", (object)nd.GioiTinh ?? DBNull.Value);
 
-                SqlCommand cmd = new SqlCommand(sql, conn);
-
-                cmd.Parameters.AddWithValue("@TenDangNhap", nd.TenDangNhap);
-                cmd.Parameters.AddWithValue("@MatKhau", nd.MatKhau);
-                cmd.Parameters.AddWithValue("@HoTen", nd.HoTen);
-                cmd.Parameters.AddWithValue("@Email", nd.Email);
-                cmd.Parameters.AddWithValue("@NgaySinh", nd.NgaySinh);
-                cmd.Parameters.AddWithValue("@GioiTinh", nd.GioiTinh);
-
-                return cmd.ExecuteNonQuery() > 0;
-            }
-            catch
-            {
-                return false;
-            }
-            finally
-            {
-                conn.Close();
+                    return cmd.ExecuteNonQuery() > 0;
+                }
+                catch
+                {
+                    return false;
+                }
             }
         }
 
-        public NguoiDung DangNhap(
-     string tenDangNhap,
-     string matKhau)
+        public NguoiDung DangNhap(string tenDangNhap, string matKhau)
         {
-            SqlConnection conn = new SqlConnection(DBHelper.ConnectionString);
-
-            try
+            using (SqlConnection conn = new SqlConnection(DBHelper.ConnectionString))
             {
-                conn.Open();
-
-                string sql =
-                @"SELECT *
-          FROM TaiKhoan
-          WHERE TenDangNhap=@TenDangNhap
-          AND MatKhau=@MatKhau";
-
-                SqlCommand cmd = new SqlCommand(sql, conn);
-
-                cmd.Parameters.AddWithValue("@TenDangNhap", tenDangNhap);
-                cmd.Parameters.AddWithValue("@MatKhau", matKhau);
-
-                SqlDataReader reader = cmd.ExecuteReader();
-
-                if (reader.Read())
+                try
                 {
-                    NguoiDung nd = new NguoiDung();
+                    conn.Open();
+                    string sql = @"SELECT * FROM TaiKhoan WHERE TenDangNhap = @TenDangNhap";
 
-                    nd.MaNguoiDung = Convert.ToInt32(reader["MaNguoiDung"]);
-                    nd.TenDangNhap = reader["TenDangNhap"].ToString();
-                    nd.MatKhau = reader["MatKhau"].ToString();
-                    nd.HoTen = reader["HoTen"].ToString();
-                    nd.Email = reader["Email"].ToString();
-                    nd.GioiTinh = reader["GioiTinh"].ToString();
+                    SqlCommand cmd = new SqlCommand(sql, conn);
+                    cmd.Parameters.AddWithValue("@TenDangNhap", tenDangNhap);
 
-                    if (reader["NgaySinh"] != DBNull.Value)
+                    using (SqlDataReader reader = cmd.ExecuteReader())
                     {
-                        nd.NgaySinh =
-                            Convert.ToDateTime(reader["NgaySinh"]);
+                        if (reader.Read())
+                        {
+                            string matKhauDB = reader["MatKhau"].ToString().Trim();
+                            if (matKhauDB == matKhau.Trim())
+                            {
+                                NguoiDung nd = new NguoiDung();
+                                nd.MaNguoiDung = Convert.ToInt32(reader["MaNguoiDung"]);
+                                nd.TenDangNhap = reader["TenDangNhap"].ToString();
+                                nd.MatKhau = matKhauDB;
+                                nd.HoTen = reader["HoTen"].ToString();
+                                nd.Email = reader["Email"].ToString();
+                                nd.GioiTinh = reader["GioiTinh"].ToString();
+
+                                if (reader["NgaySinh"] != DBNull.Value)
+                                {
+                                    nd.NgaySinh = Convert.ToDateTime(reader["NgaySinh"]);
+                                }
+                                return nd;
+                            }
+                        }
                     }
-
-                    return nd;
                 }
-
-                return null;
+                catch
+                {
+                    return null;
+                }
             }
-            catch
-            {
-                return null;
-            }
-            finally
-            {
-                conn.Close();
-            }
+            return null;
         }
 
         public bool KiemTraTonTai(string tenDangNhap)
         {
-            SqlConnection conn = new SqlConnection(DBHelper.ConnectionString);
-
-            try
+            using (SqlConnection conn = new SqlConnection(DBHelper.ConnectionString))
             {
-                conn.Open();
+                try
+                {
+                    conn.Open();
+                    string sql = "SELECT COUNT(*) FROM TaiKhoan WHERE TenDangNhap = @TenDangNhap";
 
-                string sql =
-                    "SELECT COUNT(*) FROM TaiKhoan WHERE TenDangNhap=@TenDangNhap";
+                    SqlCommand cmd = new SqlCommand(sql, conn);
+                    cmd.Parameters.AddWithValue("@TenDangNhap", tenDangNhap);
 
-                SqlCommand cmd = new SqlCommand(sql, conn);
-
-                cmd.Parameters.AddWithValue("@TenDangNhap", tenDangNhap);
-
-                int count = (int)cmd.ExecuteScalar();
-
-                return count > 0;
-            }
-            catch
-            {
-                return false;
-            }
-            finally
-            {
-                conn.Close();
+                    int count = Convert.ToInt32(cmd.ExecuteScalar());
+                    return count > 0;
+                }
+                catch
+                {
+                    return false;
+                }
             }
         }
     }

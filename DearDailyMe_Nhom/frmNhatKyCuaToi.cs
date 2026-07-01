@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Drawing;
+using System.IO;
 using System.Windows.Forms;
 using DearDailyMe_Nhom.DAL;
 
@@ -6,92 +8,73 @@ namespace DearDailyMe_Nhom
 {
     public partial class frmNhatKyCuaToi : Form
     {
-        NhatKyDAL nhatKyDAL = new NhatKyDAL();
+        private NhatKyDAL nhatKyDAL = new NhatKyDAL();
 
         public frmNhatKyCuaToi()
         {
             InitializeComponent();
+            SetupDataGridView();
         }
 
-        private void frmNhatKyCuaToi_Load(object sender, EventArgs e)
-        {
-            HienThiDanhSach();
-        }
-
-        private void HienThiDanhSach()
+        private void SetupDataGridView()
         {
             dgvDanhSachNhatKy.AutoGenerateColumns = false;
             dgvDanhSachNhatKy.Columns.Clear();
+            dgvDanhSachNhatKy.RowTemplate.Height = 100;
+            dgvDanhSachNhatKy.AllowUserToAddRows = false;
+            dgvDanhSachNhatKy.ReadOnly = true;
+            dgvDanhSachNhatKy.DefaultCellStyle.ForeColor = Color.Black;
+            dgvDanhSachNhatKy.DefaultCellStyle.BackColor = Color.White;
 
-            dgvDanhSachNhatKy.Columns.Add("NgayGhi", "Ngày viết");
-            dgvDanhSachNhatKy.Columns["NgayGhi"].DataPropertyName = "NgayGhi";
-
-            dgvDanhSachNhatKy.Columns.Add("NoiDung", "Nội dung");
-            dgvDanhSachNhatKy.Columns["NoiDung"].DataPropertyName = "NoiDung";
-
-            dgvDanhSachNhatKy.Columns.Add("CamXuc", "Cảm xúc");
-            dgvDanhSachNhatKy.Columns["CamXuc"].DataPropertyName = "MaCamXuc";
-
-            DataGridViewImageColumn imgCol = new DataGridViewImageColumn();
-            imgCol.Name = "AnhKhoanhKhac";
-            imgCol.HeaderText = "Khoảnh khắc";
-            imgCol.ImageLayout = DataGridViewImageCellLayout.Zoom;
-            dgvDanhSachNhatKy.Columns.Add(imgCol);
-
-            LoadLichSu();
+            dgvDanhSachNhatKy.Columns.Add(new DataGridViewTextBoxColumn { Name = "NgayGhi", HeaderText = "Ngày viết", DataPropertyName = "NgayGhi" });
+            dgvDanhSachNhatKy.Columns.Add(new DataGridViewTextBoxColumn { Name = "NoiDung", HeaderText = "Nội dung", DataPropertyName = "NoiDung" });
+            dgvDanhSachNhatKy.Columns.Add(new DataGridViewTextBoxColumn { Name = "MaCamXuc", HeaderText = "Cảm xúc", DataPropertyName = "MaCamXuc" });
+            dgvDanhSachNhatKy.Columns.Add(new DataGridViewImageColumn { Name = "AnhKhoanhKhac", HeaderText = "Ảnh", ImageLayout = DataGridViewImageCellLayout.Zoom });
         }
 
         private void LoadLichSu()
         {
-            var data = nhatKyDAL.LayTatCa();
-
             dgvDanhSachNhatKy.Rows.Clear();
+            var data = nhatKyDAL.LayTatCa();
+            MessageBox.Show("Số dòng lấy được từ Database là: " + (data == null ? "NULL" : data.Count.ToString()));
 
-            foreach (var item in data)
+            if (data != null && data.Count > 0)
             {
-                int rowIndex = dgvDanhSachNhatKy.Rows.Add();
-
-                dgvDanhSachNhatKy.Rows[rowIndex].Cells["NgayGhi"].Value = item.NgayGhi;
-                dgvDanhSachNhatKy.Rows[rowIndex].Cells["NoiDung"].Value = item.NoiDung;
-                dgvDanhSachNhatKy.Rows[rowIndex].Cells["CamXuc"].Value = item.CamXuc;
-
-                if (!string.IsNullOrEmpty(item.DuongDanAnh) && System.IO.File.Exists(item.DuongDanAnh))
+                foreach (var item in data)
                 {
-                    dgvDanhSachNhatKy.Rows[rowIndex].Cells["AnhKhoanhKhac"].Value =
-                        System.Drawing.Image.FromFile(item.DuongDanAnh);
+                    int idx = dgvDanhSachNhatKy.Rows.Add();
+                    dgvDanhSachNhatKy.Rows[idx].Cells["NgayGhi"].Value = item.NgayGhi.ToString("dd/MM/yyyy HH:mm");
+                    dgvDanhSachNhatKy.Rows[idx].Cells["NoiDung"].Value = item.NoiDung;
+                    dgvDanhSachNhatKy.Rows[idx].Cells["MaCamXuc"].Value = item.MaCamXuc;
+
+                    if (!string.IsNullOrEmpty(item.DuongDanAnh) && File.Exists(item.DuongDanAnh))
+                    {
+                        try
+                        {
+                            dgvDanhSachNhatKy.Rows[idx].Cells["AnhKhoanhKhac"].Value = Image.FromFile(item.DuongDanAnh);
+                        }
+                        catch
+                        {
+                            dgvDanhSachNhatKy.Rows[idx].Cells["AnhKhoanhKhac"].Value = null;
+                        }
+                    }
                 }
             }
-        }
-
-        private void dgvDanhSachNhatKy_RowPostPaint(object sender, DataGridViewRowPostPaintEventArgs e)
-        {
-            string stt = (e.RowIndex + 1).ToString();
-
-            var centerFormat = new System.Drawing.StringFormat()
-            {
-                Alignment = System.Drawing.StringAlignment.Center,
-                LineAlignment = System.Drawing.StringAlignment.Center
-            };
-
-            var headerBounds = new System.Drawing.Rectangle(
-                e.RowBounds.Left,
-                e.RowBounds.Top,
-                dgvDanhSachNhatKy.RowHeadersWidth,
-                e.RowBounds.Height
-            );
-
-            e.Graphics.DrawString(
-                stt,
-                this.Font,
-                System.Drawing.SystemBrushes.ControlText,
-                headerBounds,
-                centerFormat
-            );
         }
 
         public void ReloadData()
         {
             LoadLichSu();
+        }
+
+        private void frmNhatKyCuaToi_Load(object sender, EventArgs e)
+        {
+            LoadLichSu();
+        }
+
+        private void dgvDanhSachNhatKy_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

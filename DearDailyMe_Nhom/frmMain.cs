@@ -17,44 +17,48 @@ namespace DearDailyMe_Nhom
             {
                 DataStorage.NguoiDungHienTai = DataStorage.TatCaNguoiDung.LastOrDefault();
             }
+            // Mặc định ẩn form con lúc mới mở
+            pnlMainContent.Controls.Clear();
         }
 
         private void btnVietNhatKy_Click(object sender, EventArgs e)
         {
+            pictureBox1.Visible = false; // Ẩn ảnh chào mừng
+            pnlMainContent.Controls.Clear();
+
             frmVietNhatKy fViet = new frmVietNhatKy();
             fViet.TopLevel = false;
             fViet.FormBorderStyle = FormBorderStyle.None;
             fViet.Dock = DockStyle.Fill;
-            pnlContent.Controls.Clear();
-            pnlContent.Controls.Add(fViet);
+            pnlMainContent.Controls.Add(fViet);
             fViet.Show();
         }
 
-        private void btnNhatKyCuaToi_Click(object sender, EventArgs e)
+        private void btnTimKiemThongKe_Click(object sender, EventArgs e)
         {
-            frmNhatKyCuaToi fDS = new frmNhatKyCuaToi();
-            fDS.TopLevel = false;
-            fDS.FormBorderStyle = FormBorderStyle.None;
-            fDS.Dock = DockStyle.Fill;
-            pnlContent.Controls.Clear();
-            pnlContent.Controls.Add(fDS);
-            fDS.Show();
+            pictureBox1.Visible = false; // Ẩn ảnh chào mừng
+            pnlMainContent.Controls.Clear(); // Dọn dẹp trước khi nạp
+
+            frmDiaryMain fMain = new frmDiaryMain();
+            fMain.TopLevel = false;
+            fMain.FormBorderStyle = FormBorderStyle.None;
+            fMain.Dock = DockStyle.Fill;
+
+            pnlMainContent.Controls.Add(fMain);
+            fMain.Show();
         }
 
-        private void btnTimKiem_Click(object sender, EventArgs e)
+        private void btnHoSo_Click(object sender, EventArgs e)
         {
-            frmTimKiem fTim = new frmTimKiem();
-            fTim.TopLevel = false;
-            fTim.FormBorderStyle = FormBorderStyle.None;
-            fTim.Dock = DockStyle.Fill;
-            pnlContent.Controls.Clear();
-            pnlContent.Controls.Add(fTim);
-            fTim.Show();
-        }
+            pictureBox1.Visible = false; // Ẩn ảnh chào mừng
+            pnlMainContent.Controls.Clear();
 
-        private void pnlContent_Paint(object sender, PaintEventArgs e)
-        {
-
+            frmHoSo hoSoForm = new frmHoSo();
+            hoSoForm.TopLevel = false;
+            hoSoForm.FormBorderStyle = FormBorderStyle.None;
+            hoSoForm.Dock = DockStyle.Fill;
+            pnlMainContent.Controls.Add(hoSoForm);
+            hoSoForm.Show();
         }
 
         private void btnDangXuat_Click(object sender, EventArgs e)
@@ -64,38 +68,11 @@ namespace DearDailyMe_Nhom
             if (result == DialogResult.Yes)
             {
                 DataStorage.NguoiDungHienTai = null;
-
                 this.Hide();
                 frmLogin fLogin = new frmLogin();
                 fLogin.ShowDialog();
                 this.Close();
             }
-        }
-
-        private void btnHoSo_Click(object sender, EventArgs e)
-        {
-            pnlContent.Controls.Clear();
-
-            frmHoSo hoSoForm = new frmHoSo();
-            hoSoForm.TopLevel = false;
-            hoSoForm.FormBorderStyle = FormBorderStyle.None;
-            hoSoForm.Dock = DockStyle.Fill;
-
-            pnlContent.Controls.Add(hoSoForm);
-            hoSoForm.Show();
-        }
-
-        private void btnThongKeCamXuc_Click(object sender, EventArgs e)
-        {
-            pnlContent.Controls.Clear();
-
-            frmThongKeCamXuc fThongKe = new frmThongKeCamXuc();
-            fThongKe.TopLevel = false;
-            fThongKe.Dock = DockStyle.Fill;
-            fThongKe.FormBorderStyle = FormBorderStyle.None;
-
-            pnlContent.Controls.Add(fThongKe);
-            fThongKe.Show();
         }
     }
 }

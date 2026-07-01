@@ -133,8 +133,14 @@
   <data name="em gấu" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\em gấu.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="ChatGPT Image Jun 5, 2026, 08_04_44 PM" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ChatGPT Image Jun 5, 2026, 08_04_44 PM.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="Ảnh chụp màn hình 2026-05-29 221457" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Ảnh chụp màn hình 2026-05-29 221457.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Screenshot 2026-07-01 021822" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Screenshot 2026-07-01 021822.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="mới1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\mới1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -142,8 +148,8 @@
   <data name="ChatGPT Image Jun 5, 2026, 08_04_44 PM1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\ChatGPT Image Jun 5, 2026, 08_04_44 PM1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="z7870572443644_25e466cf23055851ad180be467d19be2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\z7870572443644_25e466cf23055851ad180be467d19be2.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="gấu2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\gấu2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="em gấu trắng" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\em gấu trắng.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -154,8 +160,8 @@
   <data name="ChatGPT Image Jun 4, 2026, 02_39_49 PM" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\ChatGPT Image Jun 4, 2026, 02_39_49 PM.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="ChatGPT Image Jun 5, 2026, 08_04_44 PM" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\ChatGPT Image Jun 5, 2026, 08_04_44 PM.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="z7870572443644_25e466cf23055851ad180be467d19be2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\z7870572443644_25e466cf23055851ad180be467d19be2.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="gấu" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\gấu.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -187,7 +193,7 @@
   <data name="ChatGPT Image Jun 4, 2026, 02_51_34 PM" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\ChatGPT Image Jun 4, 2026, 02_51_34 PM.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="gấu2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\gấu2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="ChatGPT Image Jul 1, 2026, 02_22_29 AM" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ChatGPT Image Jul 1, 2026, 02_22_29 AM.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

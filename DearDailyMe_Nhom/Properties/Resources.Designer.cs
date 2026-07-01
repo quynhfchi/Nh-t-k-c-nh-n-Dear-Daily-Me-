@@ -93,6 +93,16 @@ namespace DearDailyMe_Nhom.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap ChatGPT_Image_Jul_1__2026__02_22_29_AM {
+            get {
+                object obj = ResourceManager.GetObject("ChatGPT Image Jul 1, 2026, 02_22_29 AM", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap ChatGPT_Image_Jun_4__2026__02_39_49_PM {
             get {
                 object obj = ResourceManager.GetObject("ChatGPT Image Jun 4, 2026, 02_39_49 PM", resourceCulture);
@@ -286,6 +296,16 @@ namespace DearDailyMe_Nhom.Properties {
         internal static System.Drawing.Bitmap nhật_ký_của_tôi1 {
             get {
                 object obj = ResourceManager.GetObject("nhật ký của tôi1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Screenshot_2026_07_01_021822 {
+            get {
+                object obj = ResourceManager.GetObject("Screenshot 2026-07-01 021822", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

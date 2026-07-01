@@ -29,50 +29,57 @@ namespace DearDailyMe_Nhom
         {
             if (string.IsNullOrWhiteSpace(txtNoiDung.Text))
             {
-                MessageBox.Show("Vui lòng nhập nội dung!");
+                MessageBox.Show("Vui lòng nhập nội dung nhật ký!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtNoiDung.Focus();
                 return;
             }
 
             string camXucDuocChon = "";
-
-            if (radHanhPhuc.Checked) camXucDuocChon = radHanhPhuc.Text;
-            else if (radVuiVe.Checked) camXucDuocChon = radVuiVe.Text;
-            else if (radBinhThuong.Checked) camXucDuocChon = radBinhThuong.Text;
-            else if (radBuon.Checked) camXucDuocChon = radBuon.Text;
-            else if (radThatVong.Checked) camXucDuocChon = radThatVong.Text;
+            if (radHanhPhuc.Checked) camXucDuocChon = "Hạnh Phúc";
+            else if (radVuiVe.Checked) camXucDuocChon = "Vui Vẻ";
+            else if (radBinhThuong.Checked) camXucDuocChon = "Bình Thường";
+            else if (radBuon.Checked) camXucDuocChon = "Buồn";
+            else if (radThatVong.Checked) camXucDuocChon = "Thất Vọng";
 
             if (string.IsNullOrEmpty(camXucDuocChon))
             {
-                MessageBox.Show("Bạn chưa chọn cảm xúc!");
+                MessageBox.Show("Bạn chưa chọn cảm xúc cho ngày hôm nay!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
             NhatKy moi = new NhatKy
             {
                 MaNguoiDung = DataStorage.NguoiDungHienTai.MaNguoiDung,
-                MaCamXuc = LayMaCamXuc(camXucDuocChon),
-
+                MaCamXuc = LayMaCamXuc(camXucDuocChon), 
                 NgayGhi = DateTime.Now,
                 NoiDung = txtNoiDung.Text,
                 CamXuc = camXucDuocChon,
                 DuongDanAnh = picKhoanhKhac.Tag?.ToString()
             };
-          
-            NhatKyDAL dal = new NhatKyDAL();
 
-            bool ok = dal.Them(moi);
-
-            if (ok)
+            try
             {
-                MessageBox.Show("Đã lưu nhật ký!");
+                NhatKyDAL dal = new NhatKyDAL();
+                if (dal.Them(moi))
+                {
+                    MessageBox.Show("Nhật ký đã được lưu thành công!", "Thành công", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                XoaForm();
-
-                RefreshLichSuForm();
+                    txtNoiDung.Clear();
+                    picKhoanhKhac.Image = null;
+                    picKhoanhKhac.Tag = null;
+                    foreach (Control ctrl in panel1.Controls)
+                    {
+                        if (ctrl is RadioButton rb) rb.Checked = false;
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Có lỗi xảy ra khi lưu vào cơ sở dữ liệu.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
-            else
+            catch (Exception ex)
             {
-                MessageBox.Show("Lưu thất bại!");
+                MessageBox.Show("Lỗi hệ thống: " + ex.Message);
             }
         }
         private void RefreshLichSuForm()
@@ -150,6 +157,11 @@ namespace DearDailyMe_Nhom
                 default:
                     return 3;
             }
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
