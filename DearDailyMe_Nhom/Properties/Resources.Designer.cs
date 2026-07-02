@@ -263,6 +263,26 @@ namespace DearDailyMe_Nhom.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap mat_dong {
+            get {
+                object obj = ResourceManager.GetObject("mat_dong", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap mat_mo {
+            get {
+                object obj = ResourceManager.GetObject("mat_mo", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap mới {
             get {
                 object obj = ResourceManager.GetObject("mới", resourceCulture);
@@ -306,6 +326,16 @@ namespace DearDailyMe_Nhom.Properties {
         internal static System.Drawing.Bitmap Screenshot_2026_07_01_021822 {
             get {
                 object obj = ResourceManager.GetObject("Screenshot 2026-07-01 021822", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Screenshot_2026_07_02_2252301 {
+            get {
+                object obj = ResourceManager.GetObject("Screenshot 2026-07-02 2252301", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

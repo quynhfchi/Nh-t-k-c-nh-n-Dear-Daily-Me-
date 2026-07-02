@@ -9,6 +9,8 @@ namespace DearDailyMe_Nhom
         public frmLogin()
         {
             InitializeComponent();
+            txtMatKhau.PasswordChar = '●';
+            picShowHide.Image = Properties.Resources.mat_dong;
         }
 
         private void btnDangNhap_Click(object sender, EventArgs e)
@@ -64,6 +66,27 @@ namespace DearDailyMe_Nhom
             this.Hide();
             fReg.ShowDialog();
             this.Show(); // Quay lại form đăng nhập sau khi đóng form đăng ký
+        }
+
+        private void picShowHide_Click(object sender, EventArgs e)
+        {
+            if (txtMatKhau.PasswordChar == '●')
+            {
+                txtMatKhau.PasswordChar = '\0'; // Hiện mật khẩu ra
+                picShowHide.Image = Properties.Resources.mat_mo; // Đổi sang hình mắt mở
+            }
+            // Nếu mật khẩu đang hiện
+            else
+            {
+                txtMatKhau.PasswordChar = '●'; // Ẩn mật khẩu lại
+                picShowHide.Image = Properties.Resources.mat_dong; // Đổi lại hình mắt nhắm
+                txtMatKhau.SelectionStart = txtMatKhau.Text.Length;
+            }
+        }
+
+        private void panel2_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }
