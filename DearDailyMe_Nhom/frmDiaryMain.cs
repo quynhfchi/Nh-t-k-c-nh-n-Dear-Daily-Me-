@@ -41,6 +41,12 @@ namespace DearDailyMe_Nhom
             cboCamXuc.ValueMember = "MaCamXuc";
             cboCamXuc.DataSource = dtCamXuc;
             cboCamXuc.SelectedIndex = -1;
+
+            pnlLeft.BackColor = Color.FromArgb(200, 255, 255, 255);
+
+            // Áp dụng cho các Panel còn lại nếu muốn đồng bộ
+            pnlFilter.BackColor = Color.FromArgb(200, 255, 255, 255);
+            pnlRight.BackColor = Color.FromArgb(200, 255, 255, 255);
         }
 
         private void LayKhoangThoiGian(out DateTime tuNgay, out DateTime denNgay)
@@ -170,5 +176,10 @@ namespace DearDailyMe_Nhom
         private void lblTongNhatKyla_Click(object sender, EventArgs e) { }
         private void txtTuKhoa_TextChanged(object sender, EventArgs e) { }
         private void cboCamXuc_SelectedIndexChanged(object sender, EventArgs e) { }
+
+        private void pnlFilter_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

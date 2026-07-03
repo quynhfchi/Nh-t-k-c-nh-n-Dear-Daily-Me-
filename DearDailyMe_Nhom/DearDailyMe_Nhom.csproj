@@ -444,6 +444,39 @@
   <ItemGroup>
     <None Include="Resources\dangnhap.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\z8005140671399_d7cac62f2a35f2948b64e9c2865714ef.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\z8005140671399_d7cac62f2a35f2948b64e9c2865714ef1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\z8005140671399_d7cac62f2a35f2948b64e9c2865714ef2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\z8005140671399_d7cac62f2a35f2948b64e9c2865714ef3.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\form main.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\đăng kí.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\đăng kí1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\z8005235594023_364fa319aef90fe0af4efbd94471db7b.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\z8005241396003_ec1150be0235e61f0149c90b585fba61.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\z8005245595919_20bb0bcbe2f0f700046568870a1eb19f.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\z8005247439745_050459dd18dea1771b07bb291d397a75.jpg" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\Microsoft.Data.SqlClient.SNI.6.0.2\build\net462\Microsoft.Data.SqlClient.SNI.targets" Condition="Exists('..\packages\Microsoft.Data.SqlClient.SNI.6.0.2\build\net462\Microsoft.Data.SqlClient.SNI.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

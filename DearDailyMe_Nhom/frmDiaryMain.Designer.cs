@@ -31,6 +31,7 @@
             this.pnlRight = new System.Windows.Forms.Panel();
             this.grbTinHieuVuTru = new System.Windows.Forms.GroupBox();
             this.rtbTinHieu = new System.Windows.Forms.RichTextBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.grbTongQuanCamXuc = new System.Windows.Forms.GroupBox();
             this.pnlThongKe = new System.Windows.Forms.Panel();
             this.blTong = new System.Windows.Forms.Label();
@@ -67,6 +68,7 @@
             this.btnTim = new System.Windows.Forms.Button();
             this.pnlRight.SuspendLayout();
             this.grbTinHieuVuTru.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.grbTongQuanCamXuc.SuspendLayout();
             this.pnlThongKe.SuspendLayout();
             this.pnlTimeFilter.SuspendLayout();
@@ -81,40 +83,49 @@
             this.pnlRight.Controls.Add(this.grbTinHieuVuTru);
             this.pnlRight.Controls.Add(this.grbTongQuanCamXuc);
             this.pnlRight.Dock = System.Windows.Forms.DockStyle.Right;
-            this.pnlRight.Location = new System.Drawing.Point(312, 0);
+            this.pnlRight.Location = new System.Drawing.Point(1039, 0);
             this.pnlRight.Name = "pnlRight";
-            this.pnlRight.Size = new System.Drawing.Size(599, 567);
+            this.pnlRight.Size = new System.Drawing.Size(566, 801);
             this.pnlRight.TabIndex = 6;
             // 
             // grbTinHieuVuTru
             // 
+            this.grbTinHieuVuTru.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.grbTinHieuVuTru.Controls.Add(this.rtbTinHieu);
+            this.grbTinHieuVuTru.Controls.Add(this.pictureBox1);
             this.grbTinHieuVuTru.Dock = System.Windows.Forms.DockStyle.Fill;
             this.grbTinHieuVuTru.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.grbTinHieuVuTru.Location = new System.Drawing.Point(0, 395);
             this.grbTinHieuVuTru.Margin = new System.Windows.Forms.Padding(1, 2, 1, 2);
             this.grbTinHieuVuTru.Name = "grbTinHieuVuTru";
             this.grbTinHieuVuTru.Padding = new System.Windows.Forms.Padding(1, 2, 1, 2);
-            this.grbTinHieuVuTru.Size = new System.Drawing.Size(599, 172);
+            this.grbTinHieuVuTru.Size = new System.Drawing.Size(566, 406);
             this.grbTinHieuVuTru.TabIndex = 13;
             this.grbTinHieuVuTru.TabStop = false;
             this.grbTinHieuVuTru.Text = "🌌 Tín hiệu vũ trụ";
             // 
             // rtbTinHieu
             // 
-            this.rtbTinHieu.BackColor = System.Drawing.Color.White;
-            this.rtbTinHieu.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.rtbTinHieu.Dock = System.Windows.Forms.DockStyle.Fill;
             this.rtbTinHieu.Location = new System.Drawing.Point(1, 30);
-            this.rtbTinHieu.Margin = new System.Windows.Forms.Padding(1, 2, 1, 2);
             this.rtbTinHieu.Name = "rtbTinHieu";
-            this.rtbTinHieu.ReadOnly = true;
-            this.rtbTinHieu.Size = new System.Drawing.Size(597, 140);
-            this.rtbTinHieu.TabIndex = 0;
+            this.rtbTinHieu.Size = new System.Drawing.Size(564, 374);
+            this.rtbTinHieu.TabIndex = 2;
             this.rtbTinHieu.Text = "";
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackColor = System.Drawing.SystemColors.Control;
+            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pictureBox1.Location = new System.Drawing.Point(1, 30);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(564, 374);
+            this.pictureBox1.TabIndex = 1;
+            this.pictureBox1.TabStop = false;
             // 
             // grbTongQuanCamXuc
             // 
+            this.grbTongQuanCamXuc.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.grbTongQuanCamXuc.Controls.Add(this.pnlThongKe);
             this.grbTongQuanCamXuc.Controls.Add(this.lblTongNhatKy);
             this.grbTongQuanCamXuc.Controls.Add(this.pnlTimeFilter);
@@ -124,13 +135,14 @@
             this.grbTongQuanCamXuc.Margin = new System.Windows.Forms.Padding(1, 2, 1, 30);
             this.grbTongQuanCamXuc.Name = "grbTongQuanCamXuc";
             this.grbTongQuanCamXuc.Padding = new System.Windows.Forms.Padding(1, 2, 1, 2);
-            this.grbTongQuanCamXuc.Size = new System.Drawing.Size(599, 395);
+            this.grbTongQuanCamXuc.Size = new System.Drawing.Size(566, 395);
             this.grbTongQuanCamXuc.TabIndex = 12;
             this.grbTongQuanCamXuc.TabStop = false;
             this.grbTongQuanCamXuc.Text = "📊 Tổng quan cảm xúc";
             // 
             // pnlThongKe
             // 
+            this.pnlThongKe.BackColor = System.Drawing.SystemColors.Control;
             this.pnlThongKe.Controls.Add(this.blTong);
             this.pnlThongKe.Controls.Add(this.lblTVCount);
             this.pnlThongKe.Controls.Add(this.blTV);
@@ -147,7 +159,7 @@
             this.pnlThongKe.Location = new System.Drawing.Point(1, 84);
             this.pnlThongKe.Margin = new System.Windows.Forms.Padding(1, 2, 1, 2);
             this.pnlThongKe.Name = "pnlThongKe";
-            this.pnlThongKe.Size = new System.Drawing.Size(597, 309);
+            this.pnlThongKe.Size = new System.Drawing.Size(564, 309);
             this.pnlThongKe.TabIndex = 14;
             // 
             // blTong
@@ -285,7 +297,7 @@
             // 
             // pnlTimeFilter
             // 
-            this.pnlTimeFilter.BackColor = System.Drawing.Color.White;
+            this.pnlTimeFilter.BackColor = System.Drawing.SystemColors.Control;
             this.pnlTimeFilter.Controls.Add(this.rdbThangNay);
             this.pnlTimeFilter.Controls.Add(this.rdbHomNay);
             this.pnlTimeFilter.Controls.Add(this.rdbTuanNay);
@@ -293,7 +305,7 @@
             this.pnlTimeFilter.Location = new System.Drawing.Point(1, 34);
             this.pnlTimeFilter.Margin = new System.Windows.Forms.Padding(1, 2, 1, 2);
             this.pnlTimeFilter.Name = "pnlTimeFilter";
-            this.pnlTimeFilter.Size = new System.Drawing.Size(597, 50);
+            this.pnlTimeFilter.Size = new System.Drawing.Size(564, 50);
             this.pnlTimeFilter.TabIndex = 12;
             // 
             // rdbThangNay
@@ -341,23 +353,22 @@
             // pnlLeft
             // 
             this.pnlLeft.Controls.Add(this.flpDiaryContainer);
-            this.pnlLeft.Controls.Add(this.pnlFilter);
             this.pnlLeft.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlLeft.Location = new System.Drawing.Point(0, 0);
             this.pnlLeft.Name = "pnlLeft";
-            this.pnlLeft.Size = new System.Drawing.Size(312, 567);
+            this.pnlLeft.Size = new System.Drawing.Size(1039, 801);
             this.pnlLeft.TabIndex = 7;
             // 
             // flpDiaryContainer
             // 
             this.flpDiaryContainer.AutoScroll = true;
             this.flpDiaryContainer.Controls.Add(this.lblThongBao);
-            this.flpDiaryContainer.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flpDiaryContainer.Location = new System.Drawing.Point(0, 330);
+            this.flpDiaryContainer.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.flpDiaryContainer.Location = new System.Drawing.Point(0, 287);
             this.flpDiaryContainer.Margin = new System.Windows.Forms.Padding(1, 2, 1, 2);
             this.flpDiaryContainer.Name = "flpDiaryContainer";
             this.flpDiaryContainer.Padding = new System.Windows.Forms.Padding(7, 8, 7, 8);
-            this.flpDiaryContainer.Size = new System.Drawing.Size(312, 237);
+            this.flpDiaryContainer.Size = new System.Drawing.Size(1039, 514);
             this.flpDiaryContainer.TabIndex = 1;
             // 
             // lblThongBao
@@ -370,6 +381,7 @@
             // 
             // pnlFilter
             // 
+            this.pnlFilter.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.pnlFilter.Controls.Add(this.lblDenNgay);
             this.pnlFilter.Controls.Add(this.dtpTo);
             this.pnlFilter.Controls.Add(this.dtpFrom);
@@ -385,14 +397,15 @@
             this.pnlFilter.Location = new System.Drawing.Point(0, 0);
             this.pnlFilter.Margin = new System.Windows.Forms.Padding(1, 2, 1, 2);
             this.pnlFilter.Name = "pnlFilter";
-            this.pnlFilter.Size = new System.Drawing.Size(312, 330);
+            this.pnlFilter.Size = new System.Drawing.Size(1039, 302);
             this.pnlFilter.TabIndex = 0;
+            this.pnlFilter.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlFilter_Paint);
             // 
             // lblDenNgay
             // 
             this.lblDenNgay.AutoSize = true;
             this.lblDenNgay.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.lblDenNgay.Location = new System.Drawing.Point(392, 195);
+            this.lblDenNgay.Location = new System.Drawing.Point(359, 195);
             this.lblDenNgay.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
             this.lblDenNgay.Name = "lblDenNgay";
             this.lblDenNgay.Size = new System.Drawing.Size(119, 29);
@@ -402,7 +415,7 @@
             // dtpTo
             // 
             this.dtpTo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.dtpTo.Location = new System.Drawing.Point(397, 248);
+            this.dtpTo.Location = new System.Drawing.Point(364, 248);
             this.dtpTo.Margin = new System.Windows.Forms.Padding(1, 2, 1, 2);
             this.dtpTo.Name = "dtpTo";
             this.dtpTo.Size = new System.Drawing.Size(387, 35);
@@ -411,7 +424,7 @@
             // dtpFrom
             // 
             this.dtpFrom.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.dtpFrom.Location = new System.Drawing.Point(397, 114);
+            this.dtpFrom.Location = new System.Drawing.Point(364, 114);
             this.dtpFrom.Margin = new System.Windows.Forms.Padding(1, 2, 1, 2);
             this.dtpFrom.Name = "dtpFrom";
             this.dtpFrom.Size = new System.Drawing.Size(387, 35);
@@ -433,7 +446,7 @@
             // 
             this.lblTuNgay.AutoSize = true;
             this.lblTuNgay.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.lblTuNgay.Location = new System.Drawing.Point(392, 70);
+            this.lblTuNgay.Location = new System.Drawing.Point(359, 70);
             this.lblTuNgay.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
             this.lblTuNgay.Name = "lblTuNgay";
             this.lblTuNgay.Size = new System.Drawing.Size(104, 29);
@@ -486,10 +499,10 @@
             // btnXoa
             // 
             this.btnXoa.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.btnXoa.Location = new System.Drawing.Point(880, 114);
+            this.btnXoa.Location = new System.Drawing.Point(826, 114);
             this.btnXoa.Margin = new System.Windows.Forms.Padding(1, 2, 1, 2);
             this.btnXoa.Name = "btnXoa";
-            this.btnXoa.Size = new System.Drawing.Size(189, 44);
+            this.btnXoa.Size = new System.Drawing.Size(176, 37);
             this.btnXoa.TabIndex = 4;
             this.btnXoa.Text = "↺ Xóa bộ lọc";
             this.btnXoa.UseVisualStyleBackColor = true;
@@ -498,10 +511,10 @@
             // btnTim
             // 
             this.btnTim.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.btnTim.Location = new System.Drawing.Point(880, 243);
+            this.btnTim.Location = new System.Drawing.Point(826, 243);
             this.btnTim.Margin = new System.Windows.Forms.Padding(1, 2, 1, 2);
             this.btnTim.Name = "btnTim";
-            this.btnTim.Size = new System.Drawing.Size(189, 40);
+            this.btnTim.Size = new System.Drawing.Size(176, 40);
             this.btnTim.TabIndex = 3;
             this.btnTim.Text = "🔍 Tìm kiếm";
             this.btnTim.UseVisualStyleBackColor = true;
@@ -511,7 +524,9 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(911, 567);
+            this.BackgroundImage = global::DearDailyMe_Nhom.Properties.Resources.z8005140671399_d7cac62f2a35f2948b64e9c2865714ef;
+            this.ClientSize = new System.Drawing.Size(1605, 801);
+            this.Controls.Add(this.pnlFilter);
             this.Controls.Add(this.pnlLeft);
             this.Controls.Add(this.pnlRight);
             this.Name = "frmDiaryMain";
@@ -519,6 +534,7 @@
             this.Load += new System.EventHandler(this.frmDiaryMain_Load);
             this.pnlRight.ResumeLayout(false);
             this.grbTinHieuVuTru.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.grbTongQuanCamXuc.ResumeLayout(false);
             this.pnlThongKe.ResumeLayout(false);
             this.pnlThongKe.PerformLayout();
@@ -568,8 +584,9 @@
         private System.Windows.Forms.Label lblHPCount;
         private System.Windows.Forms.Label blTong;
         private System.Windows.Forms.Label lblTongNhatKyla;
-        private System.Windows.Forms.RichTextBox rtbTinHieu;
         private System.Windows.Forms.Label lblThongBao;
         private System.Windows.Forms.Panel pnlThongKe;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.RichTextBox rtbTinHieu;
     }
 }
