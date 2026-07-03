@@ -5,7 +5,6 @@ using System.Data;
 using System.Drawing;
 using System.Windows.Forms;
 
-
 namespace DearDailyMe_Nhom
 {
     public partial class frmDiaryMain : Form
@@ -16,9 +15,9 @@ namespace DearDailyMe_Nhom
         {
             InitializeComponent();
         }
+
         public void HienThiNoiDung(RichTextBox rtb, string noiDung)
         {
-            // Kiểm tra nếu nội dung bắt đầu bằng mã RTF thì dùng .Rtf, ngược lại dùng .Text
             if (!string.IsNullOrEmpty(noiDung) && noiDung.Trim().StartsWith("{\\rtf"))
             {
                 rtb.Rtf = noiDung;
@@ -37,7 +36,6 @@ namespace DearDailyMe_Nhom
             LoadThongKe();
 
             DataTable dtCamXuc = nhatKyDAL.LayDanhSachCamXuc();
-
             cboCamXuc.DataSource = null;
             cboCamXuc.DisplayMember = "TenCamXuc";
             cboCamXuc.ValueMember = "MaCamXuc";
@@ -87,41 +85,59 @@ namespace DearDailyMe_Nhom
             lblTongNhatKy.Text = blTong.Text = tong.ToString();
         }
 
+        private string StripRTF(string rtf)
+        {
+            if (string.IsNullOrEmpty(rtf)) return "";
+            if (!rtf.Trim().StartsWith("{\\rtf")) return rtf;
+            using (RichTextBox rtb = new RichTextBox())
+            {
+                rtb.Rtf = rtf;
+                return rtb.Text;
+            }
+        }
+
         private void btnTim_Click(object sender, EventArgs e)
         {
             flpDiaryContainer.Controls.Clear();
-
             int maNguoiDung = DataStorage.NguoiDungHienTai.MaNguoiDung;
-            string tuKhoa = string.IsNullOrWhiteSpace(txtTuKhoa.Text) ? "" : txtTuKhoa.Text.Trim();
-
-            int maCamXuc = 0;
-            if (cboCamXuc.SelectedIndex != -1 && cboCamXuc.SelectedValue != null)
-            {
-                int.TryParse(cboCamXuc.SelectedValue.ToString(), out maCamXuc);
-            }
+            string tuKhoa = txtTuKhoa.Text.Trim().ToLower();
+            int maCamXuc = (cboCamXuc.SelectedIndex != -1 && cboCamXuc.SelectedValue != null)
+                            ? Convert.ToInt32(cboCamXuc.SelectedValue) : 0;
 
             DateTime tuNgay = dtpFrom.Value.Date;
-            DateTime denNgay = dtpTo.Value.Date.AddDays(1).AddSeconds(-1);
+            DateTime denNgay = dtpTo.Value.Date.AddDays(1);
 
-            DataTable dt = nhatKyDAL.TimKiemNhatKy(maNguoiDung, tuKhoa, maCamXuc, tuNgay, denNgay);
+            DataTable dt = nhatKyDAL.LayTatCaNhatKy(maNguoiDung, tuNgay, denNgay);
 
-            lblThongBao.Text = "Tìm thấy: " + dt.Rows.Count + " bài nhật ký";
-
+            int count = 0;
             foreach (DataRow row in dt.Rows)
             {
-                ucNhatKy item = new ucNhatKy();
+                int rowCamXuc = Convert.ToInt32(row["MaCamXuc"]);
+                string noiDungGoc = row["NoiDung"].ToString();
+                string textThuan = StripRTF(noiDungGoc).ToLower();
 
-                // Lấy mã cảm xúc từ cột MaCamXuc trong DataTable
-                int cx = Convert.ToInt32(row["MaCamXuc"]);
+                bool matchTuKhoa = string.IsNullOrEmpty(tuKhoa) || textThuan.Contains(tuKhoa);
+                bool matchCamXuc = (maCamXuc == 0) || (rowCamXuc == maCamXuc);
 
-                // Truyền đủ 4 tham số theo hàm BindData mới ở ucNhatKy
-                item.BindData(
-                    Convert.ToDateTime(row["NgayGhi"]).ToString("dd/MM/yyyy"),
-                    row["NoiDung"].ToString(),
-                    "",
-                    cx);
-                flpDiaryContainer.Controls.Add(item);
+                if (matchTuKhoa && matchCamXuc)
+                {
+                    ucNhatKy item = new ucNhatKy();
+                    item.BindData(Convert.ToDateTime(row["NgayGhi"]).ToString("dd/MM/yyyy"), noiDungGoc, "", rowCamXuc);
+                    flpDiaryContainer.Controls.Add(item);
+                    count++;
+                }
             }
+            lblThongBao.Text = "Tìm thấy: " + count + " bài nhật ký";
+        }
+
+        private void btnReset_Click(object sender, EventArgs e)
+        {
+            txtTuKhoa.Clear();
+            cboCamXuc.SelectedIndex = -1;
+            dtpFrom.Value = DateTime.Today;
+            dtpTo.Value = DateTime.Now;
+            flpDiaryContainer.Controls.Clear();
+            lblThongBao.Text = "Đã xóa bộ lọc. Vui lòng nhấn Tìm kiếm để xem kết quả.";
         }
 
         private void CapNhatTinHieuVuTru(Dictionary<int, int> tk)
@@ -151,20 +167,8 @@ namespace DearDailyMe_Nhom
         private void rdbHomNay_CheckedChanged(object sender, EventArgs e) { if (rdbHomNay.Checked) LoadThongKe(); }
         private void rdbTuanNay_CheckedChanged(object sender, EventArgs e) { if (rdbTuanNay.Checked) LoadThongKe(); }
         private void rdbThangNay_CheckedChanged(object sender, EventArgs e) { if (rdbThangNay.Checked) LoadThongKe(); }
-
-        private void lblTongNhatKyla_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtTuKhoa_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void cboCamXuc_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
+        private void lblTongNhatKyla_Click(object sender, EventArgs e) { }
+        private void txtTuKhoa_TextChanged(object sender, EventArgs e) { }
+        private void cboCamXuc_SelectedIndexChanged(object sender, EventArgs e) { }
     }
 }
