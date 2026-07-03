@@ -139,24 +139,25 @@ namespace DearDailyMe_Nhom.DAL
         public DataTable TimKiemNhatKy(int maNguoiDung, string tuKhoa, int maCamXuc, DateTime tuNgay, DateTime denNgay)
         {
             DataTable dt = new DataTable();
+
             using (SqlConnection conn = DBHelper.GetConnection())
             {
-                using (SqlCommand cmd = new SqlCommand("sp_TimKiemNhatKy", conn))
-                {
-                    cmd.CommandType = CommandType.StoredProcedure;
-                    cmd.Parameters.AddWithValue("@MaNguoiDung", maNguoiDung);
-                    cmd.Parameters.AddWithValue("@TuKhoa", tuKhoa);
-                    cmd.Parameters.AddWithValue("@MaCamXuc", maCamXuc);
-                    cmd.Parameters.AddWithValue("@TuNgay", tuNgay);
-                    cmd.Parameters.AddWithValue("@DenNgay", denNgay);
+                conn.Open();
 
-                    conn.Open();
-                    using (SqlDataAdapter adapter = new SqlDataAdapter(cmd))
-                    {
-                        adapter.Fill(dt);
-                    }
-                }
+       
+                SqlCommand cmd = new SqlCommand("sp_TimKiemNhatKy", conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                cmd.Parameters.AddWithValue("@MaNguoiDung", maNguoiDung);
+                cmd.Parameters.AddWithValue("@TuKhoa", tuKhoa);
+                cmd.Parameters.AddWithValue("@MaCamXuc", maCamXuc);
+                cmd.Parameters.AddWithValue("@TuNgay", tuNgay);
+                cmd.Parameters.AddWithValue("@DenNgay", denNgay);
+
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                da.Fill(dt);
             }
+
             return dt;
         }
 
@@ -176,6 +177,8 @@ namespace DearDailyMe_Nhom.DAL
                     {
                         adapter.Fill(dt);
                     }
+
+                   
                 }
             }
             return dt;

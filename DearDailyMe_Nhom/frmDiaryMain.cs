@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Windows.Forms;
 
+
 namespace DearDailyMe_Nhom
 {
     public partial class frmDiaryMain : Form
@@ -18,15 +19,19 @@ namespace DearDailyMe_Nhom
 
         private void frmDiaryMain_Load(object sender, EventArgs e)
         {
+            
+
             flpDiaryContainer.AutoScroll = true;
             flpDiaryContainer.Padding = new Padding(10);
             rdbHomNay.Checked = true;
             LoadThongKe();
 
             DataTable dtCamXuc = nhatKyDAL.LayDanhSachCamXuc();
-            cboCamXuc.DataSource = dtCamXuc;
+
+            cboCamXuc.DataSource = null;
             cboCamXuc.DisplayMember = "TenCamXuc";
             cboCamXuc.ValueMember = "MaCamXuc";
+            cboCamXuc.DataSource = dtCamXuc;
             cboCamXuc.SelectedIndex = -1;
         }
 
@@ -79,11 +84,13 @@ namespace DearDailyMe_Nhom
             int maNguoiDung = DataStorage.NguoiDungHienTai.MaNguoiDung;
             string tuKhoa = string.IsNullOrWhiteSpace(txtTuKhoa.Text) ? "" : txtTuKhoa.Text.Trim();
 
+            
             int maCamXuc = 0;
-            // CHỈ DÙNG CÁCH NÀY ĐỂ TRÁNH LỖI ÉP KIỂU
+
             if (cboCamXuc.SelectedIndex != -1 && cboCamXuc.SelectedValue != null)
             {
                 int.TryParse(cboCamXuc.SelectedValue.ToString(), out maCamXuc);
+
             }
 
             DateTime tuNgay = dtpFrom.Value.Date;
@@ -138,6 +145,11 @@ namespace DearDailyMe_Nhom
         }
 
         private void txtTuKhoa_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cboCamXuc_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }
