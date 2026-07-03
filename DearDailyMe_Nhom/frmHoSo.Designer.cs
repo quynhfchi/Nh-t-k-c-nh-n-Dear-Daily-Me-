@@ -161,7 +161,7 @@
             // 
             this.txtTaiKhoan.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.txtTaiKhoan.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.txtTaiKhoan.Location = new System.Drawing.Point(737, 504);
+            this.txtTaiKhoan.Location = new System.Drawing.Point(737, 438);
             this.txtTaiKhoan.Margin = new System.Windows.Forms.Padding(1, 2, 1, 2);
             this.txtTaiKhoan.Multiline = true;
             this.txtTaiKhoan.Name = "txtTaiKhoan";
@@ -173,7 +173,7 @@
             // 
             this.txtMatKhau.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.txtMatKhau.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.txtMatKhau.Location = new System.Drawing.Point(737, 437);
+            this.txtMatKhau.Location = new System.Drawing.Point(737, 501);
             this.txtMatKhau.Margin = new System.Windows.Forms.Padding(1, 2, 1, 2);
             this.txtMatKhau.Multiline = true;
             this.txtMatKhau.Name = "txtMatKhau";

@@ -13,7 +13,6 @@ namespace DearDailyMe_Nhom
         public ucNhatKy()
         {
             InitializeComponent();
-
             this.Load += (s, e) => BoGocControl(20);
             this.Click += HandleClick;
             lblNgay.Click += HandleClick;
@@ -21,13 +20,35 @@ namespace DearDailyMe_Nhom
             pbCamXuc.Click += HandleClick;
         }
 
-        public void BindData(string ngay, string noiDung, string pathAnhCamXuc)
+        // Đã thêm int maCamXuc vào tham số truyền vào
+        public void BindData(string ngay, string noiDung, string pathAnhCamXuc, int maCamXuc)
         {
             lblNgay.Text = ngay;
             NoiDungDayDu = noiDung;
 
-            lblNoiDung.Text = noiDung.Length > 100 ? noiDung.Substring(0, 100) + "..." : noiDung;
+            // Đổi màu nền theo cảm xúc
+            this.BackColor = LayMauTheoCamXuc(maCamXuc);
+            rtbNoiDung.BackColor = this.BackColor;
 
+            // Ẩn label tóm tắt và hiện RichTextBox
+            lblNoiDung.Visible = false;
+            rtbNoiDung.Visible = true;
+
+            // Cấu hình RichTextBox
+            rtbNoiDung.BorderStyle = BorderStyle.None;
+            rtbNoiDung.ReadOnly = true;
+
+            // Hiển thị nội dung
+            if (!string.IsNullOrEmpty(noiDung) && noiDung.Trim().StartsWith("{\\rtf"))
+            {
+                rtbNoiDung.Rtf = noiDung;
+            }
+            else
+            {
+                rtbNoiDung.Text = noiDung;
+            }
+
+            // Ảnh cảm xúc
             if (!string.IsNullOrEmpty(pathAnhCamXuc) && File.Exists(pathAnhCamXuc))
             {
                 pbCamXuc.Image = Image.FromFile(pathAnhCamXuc);
@@ -39,10 +60,6 @@ namespace DearDailyMe_Nhom
             MessageBox.Show(NoiDungDayDu, "Chi tiết nhật ký");
         }
 
-        private void ucNhatKy_Load(object sender, EventArgs e)
-        {
-
-        }
         private void BoGocControl(int radius)
         {
             GraphicsPath path = new GraphicsPath();
@@ -53,9 +70,20 @@ namespace DearDailyMe_Nhom
             this.Region = new Region(path);
         }
 
-        private void lblNoiDung_Click(object sender, EventArgs e)
+        private Color LayMauTheoCamXuc(int maCamXuc)
         {
-
+            switch (maCamXuc)
+            {
+                case 1: return Color.LightPink;    // Hạnh phúc
+                case 2: return Color.LightYellow;  // Vui vẻ
+                case 3: return Color.LightSkyBlue;  // Bình thường
+                case 4: return Color.FromArgb(190, 190, 190);     // Buồn
+                case 5: return Color.Lavender;    // Thất vọng
+                default: return Color.WhiteSmoke;  // Mặc định
+            }
         }
+
+        private void ucNhatKy_Load(object sender, EventArgs e) { }
+        private void lblNoiDung_Click(object sender, EventArgs e) { }
     }
 }

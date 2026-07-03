@@ -16,11 +16,21 @@ namespace DearDailyMe_Nhom
         {
             InitializeComponent();
         }
+        public void HienThiNoiDung(RichTextBox rtb, string noiDung)
+        {
+            // Kiểm tra nếu nội dung bắt đầu bằng mã RTF thì dùng .Rtf, ngược lại dùng .Text
+            if (!string.IsNullOrEmpty(noiDung) && noiDung.Trim().StartsWith("{\\rtf"))
+            {
+                rtb.Rtf = noiDung;
+            }
+            else
+            {
+                rtb.Text = noiDung;
+            }
+        }
 
         private void frmDiaryMain_Load(object sender, EventArgs e)
         {
-            
-
             flpDiaryContainer.AutoScroll = true;
             flpDiaryContainer.Padding = new Padding(10);
             rdbHomNay.Checked = true;
@@ -84,13 +94,10 @@ namespace DearDailyMe_Nhom
             int maNguoiDung = DataStorage.NguoiDungHienTai.MaNguoiDung;
             string tuKhoa = string.IsNullOrWhiteSpace(txtTuKhoa.Text) ? "" : txtTuKhoa.Text.Trim();
 
-            
             int maCamXuc = 0;
-
             if (cboCamXuc.SelectedIndex != -1 && cboCamXuc.SelectedValue != null)
             {
                 int.TryParse(cboCamXuc.SelectedValue.ToString(), out maCamXuc);
-
             }
 
             DateTime tuNgay = dtpFrom.Value.Date;
@@ -103,10 +110,16 @@ namespace DearDailyMe_Nhom
             foreach (DataRow row in dt.Rows)
             {
                 ucNhatKy item = new ucNhatKy();
+
+                // Lấy mã cảm xúc từ cột MaCamXuc trong DataTable
+                int cx = Convert.ToInt32(row["MaCamXuc"]);
+
+                // Truyền đủ 4 tham số theo hàm BindData mới ở ucNhatKy
                 item.BindData(
                     Convert.ToDateTime(row["NgayGhi"]).ToString("dd/MM/yyyy"),
                     row["NoiDung"].ToString(),
-                    "");
+                    "",
+                    cx);
                 flpDiaryContainer.Controls.Add(item);
             }
         }

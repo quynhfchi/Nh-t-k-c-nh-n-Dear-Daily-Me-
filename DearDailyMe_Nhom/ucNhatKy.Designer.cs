@@ -28,6 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.rtbNoiDung = new System.Windows.Forms.RichTextBox();
+            // Cài đặt vị trí cho nó (bạn chỉnh thông số tùy ý)
+            this.rtbNoiDung.Location = new System.Drawing.Point(32, 69);
+            this.rtbNoiDung.Name = "rtbNoiDung";
+            this.rtbNoiDung.Size = new System.Drawing.Size(236, 168);
+            this.rtbNoiDung.TabIndex = 3;
+            this.rtbNoiDung.Text = "";
+            // Thêm vào Controls
+            this.Controls.Add(this.rtbNoiDung);
             this.lblNgay = new System.Windows.Forms.Label();
             this.lblNoiDung = new System.Windows.Forms.Label();
             this.pbCamXuc = new System.Windows.Forms.PictureBox();
@@ -84,5 +93,6 @@
         private System.Windows.Forms.Label lblNgay;
         private System.Windows.Forms.Label lblNoiDung;
         private System.Windows.Forms.PictureBox pbCamXuc;
+        private System.Windows.Forms.RichTextBox rtbNoiDung; // Thêm dòng này
     }
 }
