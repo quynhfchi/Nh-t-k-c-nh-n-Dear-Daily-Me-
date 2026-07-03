@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DearDailyMe_Nhom.DAL;
+using System;
 using System.Windows.Forms;
 
 namespace DearDailyMe_Nhom
@@ -34,7 +35,7 @@ namespace DearDailyMe_Nhom
         {
             txtHovaTen.ReadOnly = !isEditing;
             txtEmail.ReadOnly = !isEditing;
-            txtTaiKhoan.ReadOnly = !isEditing;
+            txtTaiKhoan.ReadOnly = true;
             txtMatKhau.ReadOnly = !isEditing;
             dtpNgaySinh.Enabled = isEditing;
 
@@ -48,46 +49,7 @@ namespace DearDailyMe_Nhom
             SetEditingMode(true);
         }
 
-        private void btnLuu_Click(object sender, EventArgs e)
-        {
-            if (string.IsNullOrWhiteSpace(txtHovaTen.Text) || string.IsNullOrWhiteSpace(txtTaiKhoan.Text) ||
-                string.IsNullOrWhiteSpace(txtMatKhau.Text) || string.IsNullOrWhiteSpace(txtEmail.Text))
-            {
-                MessageBox.Show("Các thông tin này là bắt buộc, bạn không được để trống nhé!", "Thông báo");
-                return;
-            }
-
-            if (dtpNgaySinh.Value.Date >= DateTime.Now.Date)
-            {
-                MessageBox.Show("Ngày sinh không hợp lệ. Vui lòng chọn lại ngày sinh chính xác!", "Lỗi");
-                return;
-            }
-
-            int tuoi = DateTime.Now.Year - dtpNgaySinh.Value.Year;
-            if (dtpNgaySinh.Value.Date > DateTime.Now.AddYears(-tuoi).Date)
-            {
-                tuoi--;
-            }
-
-            if (tuoi < 13)
-            {
-                MessageBox.Show("Bạn phải từ 13 tuổi trở lên mới được sử dụng ứng dụng này nhé!", "Thông báo độ tuổi");
-                return;
-            }
-
-            if (DataStorage.NguoiDungHienTai != null)
-            {
-                DataStorage.NguoiDungHienTai.HoTen = System.Globalization.CultureInfo.CurrentCulture.TextInfo.ToTitleCase(txtHovaTen.Text.ToLower());
-                DataStorage.NguoiDungHienTai.NgaySinh = dtpNgaySinh.Value;
-                DataStorage.NguoiDungHienTai.Email = txtEmail.Text.Trim();
-                DataStorage.NguoiDungHienTai.TenDangNhap = txtTaiKhoan.Text.Trim();
-                DataStorage.NguoiDungHienTai.MatKhau = txtMatKhau.Text;
-            }
-
-            MessageBox.Show("Cập nhật thông tin hồ sơ thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            SetEditingMode(false);
-        }
-
+       
              private void btnSua_Click_1(object sender, EventArgs e)
         {
             SetEditingMode(true);
@@ -131,8 +93,15 @@ namespace DearDailyMe_Nhom
                 DataStorage.NguoiDungHienTai.HoTen = System.Globalization.CultureInfo.CurrentCulture.TextInfo.ToTitleCase(txtHovaTen.Text.ToLower());
                 DataStorage.NguoiDungHienTai.NgaySinh = dtpNgaySinh.Value;
                 DataStorage.NguoiDungHienTai.Email = txtEmail.Text.Trim();
-                DataStorage.NguoiDungHienTai.TenDangNhap = txtTaiKhoan.Text.Trim();
+               // DataStorage.NguoiDungHienTai.TenDangNhap = txtTaiKhoan.Text.Trim();
                 DataStorage.NguoiDungHienTai.MatKhau = txtMatKhau.Text;
+                NguoiDungDAL dal = new NguoiDungDAL();
+
+                if (!dal.CapNhatNguoiDung(DataStorage.NguoiDungHienTai))
+                {
+                    MessageBox.Show("Cập nhật thất bại!");
+                    return;
+                }
             }
 
             MessageBox.Show("Cập nhật thông tin hồ sơ thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -144,7 +113,7 @@ namespace DearDailyMe_Nhom
 
         }
 
-        private void frmHoSo_Load_1(object sender, EventArgs e)
+        private void pictureBox1_Click(object sender, EventArgs e)
         {
 
         }

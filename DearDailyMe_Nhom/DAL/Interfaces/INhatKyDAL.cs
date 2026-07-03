@@ -11,6 +11,7 @@ namespace DearDailyMe_Nhom.DAL.Interfaces
 
         bool Xoa(string maNK);
 
+
         List<NhatKy> LayTatCa();
     }
 }

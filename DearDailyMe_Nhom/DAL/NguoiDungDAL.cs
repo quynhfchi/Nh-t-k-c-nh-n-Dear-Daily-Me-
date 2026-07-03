@@ -104,5 +104,39 @@ namespace DearDailyMe_Nhom.DAL
                 }
             }
         }
+        public bool CapNhatNguoiDung(NguoiDung nd)
+        {
+  
+            using (SqlConnection conn = DBHelper.GetConnection())
+            {
+                try
+                {
+                    conn.Open();
+
+                    string sql = @"
+                    UPDATE TaiKhoan
+                    SET
+                        HoTen = @HoTen,
+                        Email = @Email,
+                        NgaySinh = @NgaySinh,
+                        MatKhau = @MatKhau
+                    WHERE TenDangNhap = @TenDangNhap";
+                    SqlCommand cmd = new SqlCommand(sql, conn);
+                
+                    cmd.Parameters.AddWithValue("@HoTen", nd.HoTen);
+                    cmd.Parameters.AddWithValue("@Email", nd.Email);
+                    cmd.Parameters.AddWithValue("@NgaySinh", nd.NgaySinh);
+                    cmd.Parameters.AddWithValue("@MatKhau", nd.MatKhau);
+                    cmd.Parameters.AddWithValue("@TenDangNhap", nd.TenDangNhap);
+                 
+                    return cmd.ExecuteNonQuery() > 0;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                    return false;
+                }
+            }
+        }
     }
 }

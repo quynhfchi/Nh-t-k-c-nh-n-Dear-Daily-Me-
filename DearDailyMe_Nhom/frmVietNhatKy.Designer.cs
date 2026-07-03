@@ -63,7 +63,7 @@
             this.txtNoiDung.Location = new System.Drawing.Point(38, 101);
             this.txtNoiDung.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtNoiDung.Name = "txtNoiDung";
-            this.txtNoiDung.Size = new System.Drawing.Size(322, 39);
+            this.txtNoiDung.Size = new System.Drawing.Size(322, 71);
             this.txtNoiDung.TabIndex = 3;
             // 
             // rtbNoiDungChinh
@@ -94,7 +94,7 @@
             this.lblNgayHienTai.AutoSize = true;
             this.lblNgayHienTai.Location = new System.Drawing.Point(370, 112);
             this.lblNgayHienTai.Name = "lblNgayHienTai";
-            this.lblNgayHienTai.Size = new System.Drawing.Size(0, 28);
+            this.lblNgayHienTai.Size = new System.Drawing.Size(0, 54);
             this.lblNgayHienTai.TabIndex = 15;
             // 
             // timer1
@@ -109,7 +109,7 @@
             this.label2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(33, 65);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(97, 32);
+            this.label2.Size = new System.Drawing.Size(189, 65);
             this.label2.TabIndex = 16;
             this.label2.Text = "Tiêu Đề";
             // 
@@ -195,7 +195,7 @@
             this.lblCamXucHienTai.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCamXucHienTai.Location = new System.Drawing.Point(33, 144);
             this.lblCamXucHienTai.Name = "lblCamXucHienTai";
-            this.lblCamXucHienTai.Size = new System.Drawing.Size(203, 32);
+            this.lblCamXucHienTai.Size = new System.Drawing.Size(398, 65);
             this.lblCamXucHienTai.TabIndex = 29;
             this.lblCamXucHienTai.Text = "Cảm Xúc Hiện Tại";
             // 
@@ -205,7 +205,7 @@
             this.lblNoiDung.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblNoiDung.Location = new System.Drawing.Point(33, 323);
             this.lblNoiDung.Name = "lblNoiDung";
-            this.lblNoiDung.Size = new System.Drawing.Size(118, 32);
+            this.lblNoiDung.Size = new System.Drawing.Size(233, 65);
             this.lblNoiDung.TabIndex = 30;
             this.lblNoiDung.Text = "Nội Dung";
             // 
@@ -300,9 +300,9 @@
             // 
             // frmVietNhatKy
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 28F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(22F, 54F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1093, 651);
+            this.ClientSize = new System.Drawing.Size(1143, 741);
             this.Controls.Add(this.pnlContentContainer);
             this.Controls.Add(this.btnXoaNoiDung);
             this.Controls.Add(this.button8);

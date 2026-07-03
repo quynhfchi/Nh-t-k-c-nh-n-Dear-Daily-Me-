@@ -10,4 +10,6 @@ public interface INguoiDungDAL
 
     bool KiemTraTonTai(
         string tenDangNhap);
+    bool CapNhatNguoiDung(
+        NguoiDung nd);
 }

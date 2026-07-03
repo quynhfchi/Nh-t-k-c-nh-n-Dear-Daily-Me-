@@ -333,6 +333,26 @@ namespace DearDailyMe_Nhom.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap dangky {
+            get {
+                object obj = ResourceManager.GetObject("dangky", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap dangnhap {
+            get {
+                object obj = ResourceManager.GetObject("dangnhap", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap em_gấu {
             get {
                 object obj = ResourceManager.GetObject("em gấu", resourceCulture);
@@ -376,6 +396,36 @@ namespace DearDailyMe_Nhom.Properties {
         internal static System.Drawing.Bitmap gấu2 {
             get {
                 object obj = ResourceManager.GetObject("gấu2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap hosonguoidung {
+            get {
+                object obj = ResourceManager.GetObject("hosonguoidung", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap hosonguoidung1 {
+            get {
+                object obj = ResourceManager.GetObject("hosonguoidung1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap hosonguoidungx {
+            get {
+                object obj = ResourceManager.GetObject("hosonguoidungx", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -506,6 +556,46 @@ namespace DearDailyMe_Nhom.Properties {
         internal static System.Drawing.Bitmap Screenshot_2026_07_03_042447 {
             get {
                 object obj = ResourceManager.GetObject("Screenshot 2026-07-03 042447", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap slidebar {
+            get {
+                object obj = ResourceManager.GetObject("slidebar", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap slidebar1 {
+            get {
+                object obj = ResourceManager.GetObject("slidebar1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap slidebar2 {
+            get {
+                object obj = ResourceManager.GetObject("slidebar2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap slidebar3 {
+            get {
+                object obj = ResourceManager.GetObject("slidebar3", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
