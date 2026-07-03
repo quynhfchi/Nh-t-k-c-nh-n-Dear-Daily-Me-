@@ -139,17 +139,14 @@ namespace DearDailyMe_Nhom.DAL
         public DataTable TimKiemNhatKy(int maNguoiDung, string tuKhoa, int maCamXuc, DateTime tuNgay, DateTime denNgay)
         {
             DataTable dt = new DataTable();
-
             using (SqlConnection conn = DBHelper.GetConnection())
             {
                 conn.Open();
-
-       
                 SqlCommand cmd = new SqlCommand("sp_TimKiemNhatKy", conn);
                 cmd.CommandType = CommandType.StoredProcedure;
 
                 cmd.Parameters.AddWithValue("@MaNguoiDung", maNguoiDung);
-                cmd.Parameters.AddWithValue("@TuKhoa", tuKhoa);
+                cmd.Parameters.AddWithValue("@TuKhoa", string.IsNullOrEmpty(tuKhoa) ? "" : tuKhoa);
                 cmd.Parameters.AddWithValue("@MaCamXuc", maCamXuc);
                 cmd.Parameters.AddWithValue("@TuNgay", tuNgay);
                 cmd.Parameters.AddWithValue("@DenNgay", denNgay);
@@ -157,7 +154,23 @@ namespace DearDailyMe_Nhom.DAL
                 SqlDataAdapter da = new SqlDataAdapter(cmd);
                 da.Fill(dt);
             }
-
+            return dt;
+        }
+        public DataTable LayTatCaNhatKy(int maNguoiDung, DateTime tuNgay, DateTime denNgay)
+        {
+            DataTable dt = new DataTable();
+            using (SqlConnection conn = DBHelper.GetConnection())
+            {
+                conn.Open();
+                // Câu lệnh này lấy toàn bộ dữ liệu trong khoảng thời gian
+                string sql = "SELECT * FROM NhatKy WHERE MaNguoiDung = @MaNguoiDung AND NgayGhi >= @TuNgay AND NgayGhi < @DenNgay";
+                SqlCommand cmd = new SqlCommand(sql, conn);
+                cmd.Parameters.AddWithValue("@MaNguoiDung", maNguoiDung);
+                cmd.Parameters.AddWithValue("@TuNgay", tuNgay);
+                cmd.Parameters.AddWithValue("@DenNgay", denNgay);
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                da.Fill(dt);
+            }
             return dt;
         }
 

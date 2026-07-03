@@ -493,6 +493,7 @@
             this.btnXoa.TabIndex = 4;
             this.btnXoa.Text = "↺ Xóa bộ lọc";
             this.btnXoa.UseVisualStyleBackColor = true;
+            this.btnXoa.Click += new System.EventHandler(this.btnReset_Click);
             // 
             // btnTim
             // 
