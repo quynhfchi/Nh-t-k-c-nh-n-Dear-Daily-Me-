@@ -108,5 +108,10 @@ namespace DearDailyMe_Nhom
         private void panel1_Paint(object sender, PaintEventArgs e) { }
 
         private void frmRegister_Load(object sender, EventArgs e) { }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

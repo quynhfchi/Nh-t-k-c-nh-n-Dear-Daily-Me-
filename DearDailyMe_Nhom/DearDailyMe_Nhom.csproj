@@ -477,6 +477,12 @@
   <ItemGroup>
     <None Include="Resources\z8005247439745_050459dd18dea1771b07bb291d397a75.jpg" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\6a2e2047-97b2-441d-8b5b-53b9757b39711.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\879ed34e-1dfe-45e5-920b-a2063abbe8821.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\Microsoft.Data.SqlClient.SNI.6.0.2\build\net462\Microsoft.Data.SqlClient.SNI.targets" Condition="Exists('..\packages\Microsoft.Data.SqlClient.SNI.6.0.2\build\net462\Microsoft.Data.SqlClient.SNI.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

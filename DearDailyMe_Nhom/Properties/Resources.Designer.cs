@@ -73,6 +73,26 @@ namespace DearDailyMe_Nhom.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _6a2e2047_97b2_441d_8b5b_53b9757b3971 {
+            get {
+                object obj = ResourceManager.GetObject("6a2e2047-97b2-441d-8b5b-53b9757b3971", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap _879ed34e_1dfe_45e5_920b_a2063abbe882 {
+            get {
+                object obj = ResourceManager.GetObject("879ed34e-1dfe-45e5-920b-a2063abbe882", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Ảnh_chụp_màn_hình_2026_05_29_221457 {
             get {
                 object obj = ResourceManager.GetObject("Ảnh chụp màn hình 2026-05-29 221457", resourceCulture);

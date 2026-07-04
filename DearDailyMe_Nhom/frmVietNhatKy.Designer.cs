@@ -65,7 +65,7 @@
             this.txtNoiDung.Location = new System.Drawing.Point(38, 112);
             this.txtNoiDung.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtNoiDung.Name = "txtNoiDung";
-            this.txtNoiDung.Size = new System.Drawing.Size(322, 39);
+            this.txtNoiDung.Size = new System.Drawing.Size(322, 71);
             this.txtNoiDung.TabIndex = 3;
             // 
             // rtbNoiDungChinh
@@ -96,7 +96,7 @@
             this.lblNgayHienTai.AutoSize = true;
             this.lblNgayHienTai.Location = new System.Drawing.Point(370, 112);
             this.lblNgayHienTai.Name = "lblNgayHienTai";
-            this.lblNgayHienTai.Size = new System.Drawing.Size(0, 28);
+            this.lblNgayHienTai.Size = new System.Drawing.Size(0, 54);
             this.lblNgayHienTai.TabIndex = 15;
             // 
             // timer1
@@ -221,7 +221,7 @@
             this.lblNoiDung.Image = global::DearDailyMe_Nhom.Properties.Resources.z8005140671399_d7cac62f2a35f2948b64e9c2865714ef3;
             this.lblNoiDung.Location = new System.Drawing.Point(33, 323);
             this.lblNoiDung.Name = "lblNoiDung";
-            this.lblNoiDung.Size = new System.Drawing.Size(118, 32);
+            this.lblNoiDung.Size = new System.Drawing.Size(233, 65);
             this.lblNoiDung.TabIndex = 30;
             this.lblNoiDung.Text = "Nội Dung";
             // 
@@ -232,7 +232,7 @@
             this.lblCamXucHienTai.Image = global::DearDailyMe_Nhom.Properties.Resources.z8005140671399_d7cac62f2a35f2948b64e9c2865714ef3;
             this.lblCamXucHienTai.Location = new System.Drawing.Point(33, 155);
             this.lblCamXucHienTai.Name = "lblCamXucHienTai";
-            this.lblCamXucHienTai.Size = new System.Drawing.Size(203, 32);
+            this.lblCamXucHienTai.Size = new System.Drawing.Size(398, 65);
             this.lblCamXucHienTai.TabIndex = 29;
             this.lblCamXucHienTai.Text = "Cảm Xúc Hiện Tại";
             // 
@@ -243,7 +243,6 @@
             this.button9.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.button9.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button9.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.button9.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.button9.Location = new System.Drawing.Point(868, 200);
             this.button9.Name = "button9";
             this.button9.Size = new System.Drawing.Size(165, 120);
@@ -300,7 +299,7 @@
             this.label2.Image = global::DearDailyMe_Nhom.Properties.Resources.z8005140671399_d7cac62f2a35f2948b64e9c2865714ef3;
             this.label2.Location = new System.Drawing.Point(33, 76);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(97, 32);
+            this.label2.Size = new System.Drawing.Size(189, 65);
             this.label2.TabIndex = 16;
             this.label2.Text = "Tiêu Đề";
             // 
@@ -320,7 +319,7 @@
             // 
             // frmVietNhatKy
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 28F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(22F, 54F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1826, 885);
             this.Controls.Add(this.pnlContentContainer);
